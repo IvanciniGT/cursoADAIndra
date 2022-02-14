@@ -1,0 +1,55 @@
+V "GNAT Lib v7"
+M P W=b
+P ZX
+
+RN
+RV NO_ENUMERATION_MAPS
+RV NO_IO
+RV SPARK_05
+
+U tipos%b		tipos.adb		1ea95d52 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D system.ads		20170510173650 4635ec04 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+D tipos.adb		20220214130051 26c4a886 tipos%b
+X 1 ada.ads
+16K9*Ada 20e8 23|2r6 40r5 41r5
+X 6 a-textio.ads
+49K13*Text_IO 471e16 23|2w10 40r9 41r9
+263U14*Put_Line 23|40s17 41s17
+X 23 tipos.adb
+4U11*Tipos 4b11 43l5 43t10
+17E10 CENAS_POSIBLES 17e67 23r16 40r27
+17n29 POLLO{17E10}
+17n36 VACA{17E10}
+17n42 CERDO{17E10} 23r33
+17n49 PESCADO{17E10}
+17n58 ENSALADA{17E10} 33r17
+18I10 EDAD<integer> 25r17 41r27
+23e5 CenaDeHoy{17E10} 33m5 40r48
+25i5 EdadDeIvan{18I10} 41r38
+
