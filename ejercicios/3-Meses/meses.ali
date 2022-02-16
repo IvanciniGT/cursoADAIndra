@@ -3,16 +3,18 @@ M P W=b
 P ZX
 
 RN
+RV NO_ENUMERATION_MAPS
 RV NO_IO
-RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U bucles%b		bucles.adb		2afa5d0d NE OO SU
+U meses%b		meses.adb		7a812c4f NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W system.concat_2%s	s-conca2.adb		s-conca2.ali
-W system.img_int%s	s-imgint.adb		s-imgint.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.img_enum_new%s	s-imenne.adb		s-imenne.ali
 
 D ada.ads		20170106103348 76789da1 ada%s
 D a-except.ads		20151016123252 291912d5 ada.exceptions%s
@@ -23,15 +25,14 @@ D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
-D bucles.adb		20220216091101 e4dc217d bucles%b
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D meses.adb		20220216101124 b4a7503f meses%b
 D system.ads		20170510173650 4635ec04 system%s
-D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
-D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
+D s-imenne.ads		20140225151139 614c06c0 system.img_enum_new%s
 D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
 D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
 D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
@@ -41,16 +42,29 @@ D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 10|1r6 2r5 5r6 6r5
+16K9*Ada 20e8 12|4r6 4r45 5r6 5r45
 X 3 a-inteio.ads
-18K13*Integer_Text_IO[8|46] 10|5w10 6r9
+18K13*Integer_Text_IO[8|46] 12|4w10 4r49
 X 7 a-textio.ads
-49K13*Text_IO 471e16 10|1w10 2r9
-263U14*Put_Line 10|13s5 21s9 30s9 40s9
-X 8 a-tiinio.ads
-56U14*Get 10|14s5[3|18]
-X 10 bucles.adb
-9U11*Bucles 9b11 46l5 46t11
-10i5 NUMERO{integer} 14m10 19r11 22m9 22r19 40r48 41m9 41r19 42r19
-27i9 VALOR{integer} 30r88
+49K13*Text_IO 471e16 12|5w10 5r49
+263U14*Put_Line 12|18s5 20s9 23s5 25s9
+X 12 meses.adb
+6U11*Meses 6b11 28l5 28t10
+9E10 MES 9e118 10r29 11r39
+9n18 ENERO{9E10} 14r14
+9n25 FEBRERO{9E10} 14r21
+9n34 MARZO{9E10} 14r30
+9n41 ABRIL{9E10} 14r37
+9n48 MAYO{9E10} 14r44
+9n54 JUNIO{9E10} 14r50
+9n61 JULIO{9E10} 14r57 16r25
+9n68 AGOSTO{9E10} 14r64 16r32
+9n76 SEPTIEMBRE{9E10} 14r72 16r40
+9n88 OCTUBRE{9E10} 14r84
+9n97 NOVIEMBRE{9E10} 14r93
+9n108 DICIEMBRE{9E10} 14r104
+10a5 MESES(9E10) 14m5 19r16
+11a5 MESES_VACACIONES(9E10) 16m5 24r16
+19e9 mes=19:16{9E10} 20r19 20r29
+24e9 mes=24:16{9E10} 25r19 25r29
 

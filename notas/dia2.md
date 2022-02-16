@@ -168,6 +168,15 @@ Qué pasa si llega la fecha de la iteración (Sprint 1) y no estás hechos los 5
         SOLO HAY UNA SOLUCION A ESTE DILEMA: AUTOMATIZAR
         
         
+        
+# VALOR ABSOLUTO DE UN NUMERO:
+
+2  -> 2
+-2 -> 2
+
+abs(-7) -> 7
+abs(7) -> 7
+
     
 
 

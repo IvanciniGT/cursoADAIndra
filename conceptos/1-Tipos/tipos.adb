@@ -16,6 +16,7 @@ procedure Tipos is
     --                      000      001    010      011   100
     type CENAS_POSIBLES is (POLLO, VACA, CERDO, PESCADO, ENSALADA); -- Cuantos bits opcupará esto en RAM? 3
     type EDAD is new Integer range 0..125000;
+    -- 1..3 -> (1, 2, 3)
     
     -- variable: para saber qué voy a cenar esta noche?
     

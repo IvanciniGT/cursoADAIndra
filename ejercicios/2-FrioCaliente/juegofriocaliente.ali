@@ -3,16 +3,16 @@ M P W=b
 P ZX
 
 RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_IO
-RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U bucles%b		bucles.adb		2afa5d0d NE OO SU
+U juegofriocaliente%b	juegofriocaliente.adb	7a09c21f NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
 
 D ada.ads		20170106103348 76789da1 ada%s
 D a-except.ads		20151016123252 291912d5 ada.exceptions%s
@@ -23,11 +23,10 @@ D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
 D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
-D bucles.adb		20220216091101 e4dc217d bucles%b
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D juegofriocaliente.adb	20220216085302 b42fbe6f juegofriocaliente%b
 D system.ads		20170510173650 4635ec04 system%s
-D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
@@ -39,18 +38,24 @@ D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
 D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
 D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-valint.ads		20090409150019 48a52a3f system.val_int%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 10|1r6 2r5 5r6 6r5
+16K9*Ada 20e8 12|1r6 1r61 2r6 2r61
 X 3 a-inteio.ads
-18K13*Integer_Text_IO[8|46] 10|5w10 6r9
+18K13*Integer_Text_IO[8|46] 12|2w10 2r65
 X 7 a-textio.ads
-49K13*Text_IO 471e16 10|1w10 2r9
-263U14*Put_Line 10|13s5 21s9 30s9 40s9
+49K13*Text_IO 471e16 12|1w10 1r65
+263U14*Put_Line 12|27s9 33s13 35s13 40s17 42s17 44s17 46s17 48s17 56s9
 X 8 a-tiinio.ads
-56U14*Get 10|14s5[3|18]
-X 10 bucles.adb
-9U11*Bucles 9b11 46l5 46t11
-10i5 NUMERO{integer} 14m10 19r11 22m9 22r19 40r48 41m9 41r19 42r19
-27i9 VALOR{integer} 30r88
+56U14*Get 12|28s9[3|18]
+X 12 juegofriocaliente.adb
+5U11*JuegoFrioCaliente 5b11 59l5 59t22
+7I10 NUMERO_JUEGO<integer> 11r33 30r73
+8I10 INTENTO<integer> 13r33
+11i5 NUMERO_ORDENADOR{7I10} 19m5 30r92
+12i5 NUMERO_JUGADOR{integer} 28m14 30r42
+13i5 INTENTOS_DISPONIBLES{8I10} 23r11 36m13 36r37
+14i5 ERROR_ESTIMACION_JUGADOR{integer} 23r40 30m9 32r12 39r16 41r19 43r19
+. 45r19 55r8
 
