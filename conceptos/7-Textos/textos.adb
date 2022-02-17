@@ -13,7 +13,28 @@ procedure Textos is
             -- - Todos los datos han de ser del mismo tipo
             -- - Su tamaño está predefinido y no puede cambiarse a posteriori.
     super_nombre : Unbounded_String;
+    miUnboundedString : Unbounded_String;
+    auxiliar:=String(1..80);
 begin
+    
+    -- Pedir valores por consola tipo texto
+    Put_Line( "Escribe algo:" );
+    declare
+        -- nuevas variables
+        leido: String := Get_Line;
+    begin -- SCOPE de las variables
+        -- aqui podre hacer instrucciones que usen esas variable... 
+        -- fuera de la seccion declarativa no existirán
+        Put_Line( "Has escrito:" );
+        Put_Line( leido );
+        miUnboundedString := To_Unbounded_String(leido);
+    end ;
+    
+    Put_Line( "Me aseguro que lo tengo:" );
+    Put_Line( To_String( miUnboundedString ) );
+    
+    
+    
     -- String    
     Put_Line( Character'Image( nombre(2) ) );
 

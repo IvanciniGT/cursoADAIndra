@@ -14,8 +14,8 @@ procedure Arrays is
                                 -- range : Rango de indices que puedo usar en ese array
     horas_entrenamiento: array (5..14) of Integer;
 begin                   -- 5    6   7   8   9   10  11  12  13  14      < Indices
-    horas_entrenamiento := (7   ,1  ,2  ,7  ,3  ,0  ,9  ,1  ,6  ,3); -- < Horas
-    
+    horas_entrenamiento := (7   ,1  ,2 ,7  ,3  ,0  ,9  ,1  ,6  ,3); -- < Horas
+    --horas_entrenamiento(5):=89;
     -- De horas_entrenamiento quiero el elemento de la casilla 5: 7
     Put( horas_entrenamiento(5) );
     -- De horas_entrenamiento quiero el elemento de la casilla 12: 1
