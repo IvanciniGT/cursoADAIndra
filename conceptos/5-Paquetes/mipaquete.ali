@@ -1,0 +1,17 @@
+V "GNAT Lib v7"
+P ZX
+
+RN
+
+U mipaquete%b		mipaquete.adb		5008761f NE OO PK
+
+U mipaquete%s		mipaquete.ads		520bf31a EE NE OO PK
+
+D mipaquete.ads		20220217092143 520bf31a mipaquete%s
+D mipaquete.adb		20220217092012 02038505 mipaquete%b
+D system.ads		20170510173650 4635ec04 system%s
+X 1 mipaquete.ads
+1K9*MiPaquete 5l5 5e14 2|1b14 8l5 8t14
+3V14*Doble{integer} 3>20 2|3b14 6l9 6t14
+3i20 numero{integer} 2|3b20 5r16
+
