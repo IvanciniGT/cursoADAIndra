@@ -17,9 +17,6 @@ package body Partida is
             acumulado_manos_ganadas(ganador_mano) := acumulado_manos_ganadas(ganador_mano) + 1 ;
         end loop;
         
-        -- Se proclama al ganador de la Partida. UI
-        proclamar_ganador_partida(ganador_mano);
-        
         -- El ganador de la partida es el ganador de la última mano... siempre.
         return ganador_mano;
     end JugarPartida;

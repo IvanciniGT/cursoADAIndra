@@ -2,7 +2,7 @@
 with Ada.Integer_Text_IO;               use Ada.Integer_Text_IO;
 with Ada.Text_IO;                       use Ada.Text_IO;
 with Partida;                           use Partida;
-with UITerminalPiedraPapelTijera;       use UITerminalPiedraPapelTijera;
+with UITerminalPiedraPapelTijera;       use UITerminalPiedraPapelTijera; ---?
 
 procedure JugarPiedraPapelTijera is
     
@@ -36,12 +36,17 @@ procedure JugarPiedraPapelTijera is
         -- Calculo ganador de la mano
         ganador_mano := reglas (mano_jugador, mano_ordenador);
         -- Lo proclamo... Comunico resultados de la mano
-        proclamar_ganador_mano(ganador_mano);
+        proclamar_ganador_mano(ganador_mano); -- TODO???
         return ganador_mano;
         
     end JugarMano;
 
     NUMERO_DE_MANOS: constant := 2;
+    ganador: RESULTADO;
 begin
-    JugarPartida( PiedraPapelTijera'Access, NUMERO_DE_MANOS );
+    ganador := JugarPartida( PiedraPapelTijera'Access, NUMERO_DE_MANOS );
+    
+    -- Se proclama al ganador de la Partida. UI
+    proclamar_ganador_partida(ganador);
+        
 end JugarPiedraPapelTijera;
