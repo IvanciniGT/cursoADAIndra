@@ -10,7 +10,7 @@ package Jugadores is
         PartidasGanadas:    Integer;
     end record;
     
-    function NuevoJugador return Jugador;
+    function NuevoJugador return Jugador; -- < Cambio: El nuevo jugador lo guardo en un Vector
     
     procedure ImprimirJugador(player: Jugador);
     
@@ -19,5 +19,13 @@ package Jugadores is
     procedure AnotarNuevaPartida(player: in out Jugador);
     
     procedure AnotarPartidaGanada(player:in out Jugador);
+    
+    ---
+    
+    function EliminarJugador(player: Jugador) return Boolean;
+    
+    function RecuperarJugador(nombre: String; jugadorEncontrado: out Jugador ) return Boolean;
+    
+    procedure ListarJugadores;
 
 end Jugadores;

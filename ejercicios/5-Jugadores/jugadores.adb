@@ -1,7 +1,16 @@
 with Ada.Text_IO; use Ada.Text_IO;
-with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Ada.Strings.Unbounded;     use Ada.Strings.Unbounded;
+with Ada.Containers.Vectors;
 
 package body Jugadores is
+
+    package VectorJugadores is new Ada.Containers.Vectors
+    (
+        Index_Type      => Positive,  -- Empieza en 1
+        Element_Type    => Jugador
+    );
+    use VectorJugadores;
+    JUGADORES: Vector;
 
     function leerDato (mensaje: String) return Unbounded_String is
     begin
@@ -16,6 +25,7 @@ package body Jugadores is
     function NuevoJugador return Jugador is
         nombre: Unbounded_String;
         email:  Unbounded_String;
+        player: Jugador;
     begin
         Put_Line("Alta de nuevo jugador:");
 
@@ -24,10 +34,14 @@ package body Jugadores is
 
         Put_Line("Muchas gracias por la información");
 
-        return ( Nombre             => nombre ,
+        player:=( Nombre             => nombre ,
                  Email              => email ,
                  PartidasJugadas    => 0 ,
-                 PartidasGanadas    => 0 );
+                 PartidasGanadas    => 0 ): 
+
+        JUGADORES.append(player);
+        return player;
+        
     end NuevoJugador;
     
     procedure ImprimirJugador(player: Jugador)  is
@@ -56,5 +70,29 @@ package body Jugadores is
         player.PartidasGanadas := player.PartidasGanadas + 1;
     end AnotarPartidaGanada;
 
+    function EliminarJugador(player: Jugador) return Boolean is
+    begin
+        
+        
+    end EliminarJugador;
+
+    function RecuperarJugador(nombre: String; jugadorEncontrado: out Jugador ) return Boolean is
+        nombreJugador: Unbounded_String := To_Unbounded_String(nombre);
+    begin
+        for player of JUGADORES loop
+            if player.Nombre = nombreJugador then
+                jugadorEncontrado := player;
+                return True;
+            end if;
+        end loop;
+        return False;
+    end;
+
+    procedure ListarJugadores is
+    begin
+        for player of JUGADORES loop
+            ImprimirJugador( player );
+        end loop;
+    end ListarJugadores;
 
 end Jugadores;
