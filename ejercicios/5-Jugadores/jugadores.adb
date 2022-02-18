@@ -38,4 +38,23 @@ package body Jugadores is
                                        & player.PartidasJugadas'Image );
     end ImprimirJugador;
 
+    procedure ModificarEmailJugador(player: in out Jugador) is
+        email: Unbounded_String;
+    begin
+        email  := leerDato("Dime tu nuevo email:");
+        player.Email := email;
+        Put_Line("Muchas gracias por la información");
+    end ModificarEmailJugador;
+
+    procedure AnotarNuevaPartida(player: in out Jugador) is
+    begin
+        player.PartidasJugadas := player.PartidasJugadas + 1;
+    end AnotarNuevaPartida;
+    
+    procedure AnotarPartidaGanada(player: in out Jugador) is
+    begin
+        player.PartidasGanadas := player.PartidasGanadas + 1;
+    end AnotarPartidaGanada;
+
+
 end Jugadores;

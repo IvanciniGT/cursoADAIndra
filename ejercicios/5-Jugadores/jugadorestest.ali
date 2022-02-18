@@ -13,7 +13,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U jugadorestest%b	jugadorestest.adb	5ea2a03a NE OO SU
+U jugadorestest%b	jugadorestest.adb	27414b3d NE OO SU
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W jugadores%s		jugadores.adb		jugadores.ali
@@ -33,8 +33,8 @@ D a-strmap.ads		20140611123156 e8bb714a ada.strings.maps%s
 D a-strunb.ads		20161012122725 ecdfa332 ada.strings.unbounded%s
 D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
-D jugadores.ads		20220217120738 85f332d6 jugadores%s
-D jugadorestest.adb	20220217122823 db5192ec jugadorestest%b
+D jugadores.ads		20220218084213 65346bea jugadores%s
+D jugadorestest.adb	20220218090949 427520d7 jugadorestest%b
 D system.ads		20170510173650 4635ec04 system%s
 D s-atocou.ads		20151020101020 b45c2d8d system.atomic_counters%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
@@ -54,13 +54,17 @@ D s-stratt.ads		20131014135145 aedef97e system.stream_attributes%s
 D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
 X 12 jugadores.ads
-4K9*Jugadores 17e14 13|1w6 1r21
+4K9*Jugadores 23e14 13|1w6 1r21
 6R10*Jugador 11e15 13|4r13
 13V14*NuevoJugador{6R10} 13|6s15
-15U15*ImprimirJugador 13|7s5
+15U15*ImprimirJugador 13|7s5 12s5
+17U15*ModificarEmailJugador 13|9s5
+19U15*AnotarNuevaPartida 13|8s5 10s5
+21U15*AnotarPartidaGanada 13|11s5
 X 13 jugadorestest.adb
-3U11*JugadoresTest 3b11 8l5 8t18
-4r5 player{12|6R10} 6m5 6r5 7r21
+3U11*JugadoresTest 3b11 14l5 14t18
+4r5 player{12|6R10} 6m5 6r5 7r21 8m24 8r24 9m27 9r27 10m24 10r24 11m25 11r25
+. 12r21
 X 14 system.ads
 67M9*Address
 X 19 s-memory.ads

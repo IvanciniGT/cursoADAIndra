@@ -13,5 +13,11 @@ package Jugadores is
     function NuevoJugador return Jugador;
     
     procedure ImprimirJugador(player: Jugador);
+    
+    procedure ModificarEmailJugador(player: in out Jugador); -- Cambiar el email
+
+    procedure AnotarNuevaPartida(player: in out Jugador);
+    
+    procedure AnotarPartidaGanada(player:in out Jugador);
 
 end Jugadores;
