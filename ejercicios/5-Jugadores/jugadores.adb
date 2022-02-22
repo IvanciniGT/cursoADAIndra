@@ -26,7 +26,7 @@ package body Jugadores is
                   PartidasGanadas    => ganadas);
 
         JUGADORES.append(player);
-        return player;
+        return player; -- Esto me puede estar dando una copia
     end cargarJugadorEnCache;
 
 
@@ -125,7 +125,7 @@ package body Jugadores is
                                        Email              => email);
 
         resultado:= addJugadorEnFichero(player);
-        return player;
+        return player; -- Esto me puede estar dando una copia de la copia
         
     end NuevoJugador;
     
