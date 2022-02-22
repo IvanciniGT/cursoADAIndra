@@ -4,10 +4,20 @@ with Ada.Text_IO;                       use Ada.Text_IO;
 with Partida;                           use Partida;
 with PiedraPapelTijeraOpciones;         use PiedraPapelTijeraOpciones;
 with UITerminalPiedraPapelTijera;       use UITerminalPiedraPapelTijera; ---?
+with ada.numerics.discrete_random;                      
 
 package body PiedraPapelTijera is
     
     function JugarMano return RESULTADO is
+        
+        package EleccionOrdenadorAleatoria is new Ada.Numerics.Discrete_Random
+        (
+            Result_Subtype    => OPCION
+        );
+        use EleccionOrdenadorAleatoria;
+        GENERADOR_ELECCIONES_ORDENADOR: Generator;
+        
+        
         mano_ordenador:                 OPCION;
         mano_jugador:                   OPCION;
         ganador_mano:                   RESULTADO;
@@ -31,7 +41,9 @@ package body PiedraPapelTijera is
         reglas(     PAPEL  ,    TIJERA      ) :=    ORDENADOR;
 
         -- El ordenador piensa en Piedra, Papel, Tijera
-        mano_ordenador := PIEDRA; -- TODO: Hacer que esto sea aleatorio
+        --mano_ordenador := GENERADOR_ELECCIONES_ORDENADOR.random; -- TODO: Hacer que esto sea aleatorio
+        reset(GENERADOR_ELECCIONES_ORDENADOR);
+        mano_ordenador := random(GENERADOR_ELECCIONES_ORDENADOR); -- TODO: Hacer que esto sea aleatorio
         -- Y pregunta al jugador por su opción- UI
         mano_jugador := obtener_opcion_jugador;
         -- Calculo ganador de la mano

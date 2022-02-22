@@ -1,0 +1,113 @@
+V "GNAT Lib v7"
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U piedrapapeltijera%b	piedrapapeltijera.adb	67845e20 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W partida%s		partida.adb		partida.ali
+W piedrapapeltijeraopciones%s  piedrapapeltijeraopciones.ads  piedrapapeltijeraopciones.ali
+Z system%s		system.ads		system.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+W uiterminalpiedrapapeltijera%s  uiterminalpiedrapapeltijera.adb  uiterminalpiedrapapeltijera.ali
+
+U piedrapapeltijera%s	piedrapapeltijera.ads	a17d2027 EE NE OO PK
+W partida%s		partida.adb		partida.ali
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20080324174807 bb51c45a ada.numerics%s
+D a-nudira.ads		20160418104118 71e55def ada.numerics.discrete_random%s
+D a-nudira.adb		20160418104118 72908cdb ada.numerics.discrete_random%b
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D partida.ads		20220222085401 10d6a197 partida%s
+D piedrapapeltijera.ads	20220222083802 b1ab81b0 piedrapapeltijera%s
+D piedrapapeltijera.adb	20220222095221 6d4031f9 piedrapapeltijera%b
+D piedrapapeltijeraopciones.ads  20220222085819 f268e4ad piedrapapeltijeraopciones%s
+D system.ads		20170510173650 4635ec04 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-imguns.ads		20140717070019 9ff43cf7 system.img_uns%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-rannum.ads		20150205111725 99ade2f2 system.random_numbers%s
+D s-rannum.adb		20160418125822 20ba1217 system.random_numbers%b
+D s-ransee.ads		20120130115052 01a57b33 system.random_seed%s
+D s-secsta.ads		20170112134946 9751b57e system.secondary_stack%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-valuns.ads		20150220142606 10a8ed3b system.val_uns%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+D uiterminalpiedrapapeltijera.ads  20220222085836 e6128acc uiterminalpiedrapapeltijera%s
+X 1 ada.ads
+16K9*Ada 20e8 17|2r6 2r45 3r6 3r45 7r6 13r51
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 17|2w10 2r49
+X 5 a-numeri.ads
+16K13*Numerics 32e17 17|7r10 13r55
+X 6 a-nudira.ads
+42E9 Result_Subtype 17|15r13
+44k22*Discrete_Random 75e33 17|7w19 13r64
+50R9 Generator<25|63R9> 17|18r41[13]
+52V13 Random{18|5E10} 17|46s27[13]
+55U14 Reset<25|100p14> 17|45s9[13]
+X 7 a-nudira.adb
+53V16 Random[25|83]{18|5E10} 26|392b13[17|13]
+X 10 a-textio.ads
+49K13*Text_IO 471e16 17|3w10 3r49
+X 13 interfac.ads
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 15 partida.ads
+1K9*Partida 8e12 16|2w6 2r45 17|4w6 4r45
+3E10*RESULTADO 3e51 16|6r31 17|11r31 23r41 24r67
+3n24*ORDENADOR{3E10} 17|39r53 40r53 41r53
+3n35*JUGADOR{3E10} 17|35r53 36r53 37r53
+3n44*EMPATE{3E10} 17|31r53 32r53 33r53
+X 16 piedrapapeltijera.ads
+4K9*PiedraPapelTijera 8l5 8e22 17|9b14 56l5 56t22
+6V14*JugarMano{15|3E10} 17|11b14 54l9 54t18
+X 17 piedrapapeltijera.adb
+13K17 EleccionOrdenadorAleatoria[6|44] 17r13
+18r9 GENERADOR_ELECCIONES_ORDENADOR{6|50R9[13]} 45r15 46r34
+21e9 mano_ordenador{18|5E10} 46m9 50r47
+22e9 mano_jugador{18|5E10} 48m9 50r33
+23e9 ganador_mano{15|3E10} 50m9 52r16
+24a9 reglas(15|3E10) 31m9 32m9 33m9 35m9 36m9 37m9 39m9 40m9 41m9 50r25
+X 18 piedrapapeltijeraopciones.ads
+3K9*PiedraPapelTijeraOpciones 17|5w6 5r45 18|7e30
+5E10*OPCION 17|15r34 21r41 22r41 24r48 24r56 18|5e43
+5n21*PIEDRA{5E10} 17|31r21 31r33 35r21 36r33 39r21 40r33
+5n29*PAPEL{5E10} 17|32r21 32r33 36r21 37r33 39r33 41r21
+5n36*TIJERA{5E10} 17|33r21 33r33 35r33 37r21 40r21 41r33
+X 25 s-rannum.ads
+75V13*Random{13|74M9} 26|221i21
+76V13*Random{13|77M9} 26|221i21
+X 37 uiterminalpiedrapapeltijera.ads
+7K9*UITerminalPiedraPapelTijera 17|6w6 6r45 37|14e32
+12V14*obtener_opcion_jugador{18|5E10} 17|48s25
+
