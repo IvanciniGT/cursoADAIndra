@@ -28,4 +28,8 @@ package Jugadores is
     
     procedure ListarJugadores;
 
+    ---
+    
+    function cargarJugadores return Boolean ;
+
 end Jugadores;

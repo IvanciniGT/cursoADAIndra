@@ -1,0 +1,10 @@
+# Ignorar ficheros sin extensión 
+## Ignora todo
+*
+## Pero excluye del ignoramiento lo que tenga extensión
+!*.*
+
+# Ficheros a ignorar
+*.o
+*.ali
+

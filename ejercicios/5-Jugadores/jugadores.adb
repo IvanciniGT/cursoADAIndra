@@ -9,8 +9,94 @@ package body Jugadores is
         Index_Type      => Positive,  -- Empieza en 1
         Element_Type    => Jugador
     );
+    
     use VectorJugadores;
-    JUGADORES: Vector;
+    JUGADORES: Vector;  -- cache
+    nombre_fichero_jugadores: constant String := "jugadores.db";
+
+    function cargarJugadorEnCache( nombre: Unbounded_String; 
+                                    email: Unbounded_String; 
+                                    jugadas: Integer := 0; 
+                                    ganadas: Integer := 0) return Jugador is
+        player: Jugador;
+    begin
+        player:=( Nombre             => nombre ,
+                  Email              => email ,
+                  PartidasJugadas    => jugadas ,
+                  PartidasGanadas    => ganadas);
+
+        JUGADORES.append(player);
+        return player;
+    end cargarJugadorEnCache;
+
+
+    -- funcion para cargar datos del fichero
+    function cargarJugadores return Boolean is
+        miFichero: File_type;
+        player: Jugador;
+    begin
+        -- Crear u nuevo fichero o abrir uno existente
+        Open(
+            File    =>  miFichero, -- descriptor del fichero.... Cómo me voy a referir desde mi programa al fichero
+            Mode    =>  In_file,  -- Un fichero para In (entrada) para leer de él
+            Name    =>  nombre_fichero_jugadores -- Nombre del fichero en mi disco duro.. en mis carpetas
+        );
+        -- Mientras NO esté en el FIN DEL FICHERO
+        while not End_of_file(miFichero) loop
+            player:= cargarJugadorEnCache (To_Unbounded_String(Get_line(miFichero)) ,
+                                  To_Unbounded_String(Get_line(miFichero)) ,
+                                  Integer'Value(Get_line(miFichero)) ,
+                                  Integer'Value(Get_line(miFichero)) );
+        end loop;
+    
+        Close( miFichero );
+        return True;
+    end cargarJugadores;    
+    
+
+    procedure guardarJugadorEnFichero(miFichero: File_type; player: Jugador ) is
+    begin
+        Put_Line( miFichero, To_String(player.nombre) );
+        Put_Line( miFichero, To_String(player.email ));
+        Put_Line( miFichero, player.PartidasJugadas'Image);
+        Put_Line( miFichero, player.PartidasGanadas'Image);
+    end guardarJugadorEnFichero;
+
+
+    function addJugadorEnFichero(player:Jugador) return Boolean is
+        miFichero: File_type;
+    begin
+        -- Tengo que crear un fichero? NO... Abrir el fichero para añadirle cosas
+        Open(
+            File    =>  miFichero, -- descriptor del fichero.... Cómo me voy a referir desde mi programa al fichero
+            Mode    =>  Append_file,  -- Añade datos al final del fichero
+            Name    =>  nombre_fichero_jugadores -- Nombre del fichero en mi disco duro.. en mis carpetas
+        );
+        
+        guardarJugadorEnFichero( miFichero, player );
+        
+        Close( miFichero );
+        return True;
+    end addJugadorEnFichero;
+
+    function reescribirFicheroJugadores return Boolean is
+        miFichero: File_type;
+    begin
+        -- Crear un nuevo fichero o sobreescribe uno existente
+        Create(
+            File    =>  miFichero, -- descriptor del fichero.... Cómo me voy a referir desde mi programa al fichero
+            Mode    =>  Out_file,  -- Un fichero para OUT (salida) para escribir en él
+            Name    =>  nombre_fichero_jugadores -- Nombre del fichero en mi disco duro.. en mis carpetas
+        );
+        -- Guardo cada jugador en el fichero
+        for player of JUGADORES loop
+            guardarJugadorEnFichero( miFichero, player );
+        end loop;
+        
+        Close( miFichero );
+        return True;
+    end reescribirFicheroJugadores;
+    
 
     function leerDato (mensaje: String) return Unbounded_String is
     begin
@@ -26,6 +112,7 @@ package body Jugadores is
         nombre: Unbounded_String;
         email:  Unbounded_String;
         player: Jugador;
+        resultado: Boolean;
     begin
         Put_Line("Alta de nuevo jugador:");
 
@@ -34,12 +121,10 @@ package body Jugadores is
 
         Put_Line("Muchas gracias por la información");
 
-        player:=( Nombre             => nombre ,
-                 Email              => email ,
-                 PartidasJugadas    => 0 ,
-                 PartidasGanadas    => 0 ): 
+        player:= cargarJugadorEnCache( Nombre             => nombre ,
+                                       Email              => email);
 
-        JUGADORES.append(player);
+        resultado:= addJugadorEnFichero(player);
         return player;
         
     end NuevoJugador;
@@ -54,26 +139,39 @@ package body Jugadores is
 
     procedure ModificarEmailJugador(player: in out Jugador) is
         email: Unbounded_String;
+        resultado: Boolean;
     begin
         email  := leerDato("Dime tu nuevo email:");
         player.Email := email;
         Put_Line("Muchas gracias por la información");
+        resultado:= reescribirFicheroJugadores;
     end ModificarEmailJugador;
 
     procedure AnotarNuevaPartida(player: in out Jugador) is
+        resultado: Boolean;
     begin
         player.PartidasJugadas := player.PartidasJugadas + 1;
+        resultado:= reescribirFicheroJugadores;
     end AnotarNuevaPartida;
     
     procedure AnotarPartidaGanada(player: in out Jugador) is
+        resultado: Boolean;
     begin
         player.PartidasGanadas := player.PartidasGanadas + 1;
+        resultado:= reescribirFicheroJugadores;
     end AnotarPartidaGanada;
 
     function EliminarJugador(player: Jugador) return Boolean is
+        resultado: Boolean;
+        encontrado: Jugador;
+        posicion: Cursor;
     begin
-        
-        
+        resultado:= RecuperarJugador(To_String(player.nombre), encontrado);
+        if resultado then
+            JUGADORES.Delete( JUGADORES.Find_index(player) );
+            resultado:= reescribirFicheroJugadores;
+        end if;
+        return resultado;
     end EliminarJugador;
 
     function RecuperarJugador(nombre: String; jugadorEncontrado: out Jugador ) return Boolean is
