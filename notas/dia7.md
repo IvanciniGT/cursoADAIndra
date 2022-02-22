@@ -14,3 +14,11 @@ Partida
         Gestionar partida basada en manos
 
 UITerminalPiedraPapelTijera
+
+
+
+
+PiedraPapelTijera -> Libreria UITerminalPiedraPapelTijera
+    obtener la mano del jugador
+
+UITerminalPiedraPapelTijera -> Tipo definido en PiedraPeplTijera

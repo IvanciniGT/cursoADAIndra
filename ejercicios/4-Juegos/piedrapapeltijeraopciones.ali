@@ -1,0 +1,16 @@
+V "GNAT Lib v7"
+P ZX
+
+RN
+
+U piedrapapeltijeraopciones%s  piedrapapeltijeraopciones.ads  f268e4ad NE OO PK
+
+D piedrapapeltijeraopciones.ads  20220222085819 f268e4ad piedrapapeltijeraopciones%s
+D system.ads		20170510173650 4635ec04 system%s
+X 1 piedrapapeltijeraopciones.ads
+3K9*PiedraPapelTijeraOpciones 7l5 7e30
+5E10*OPCION 5e43
+5n21*PIEDRA{5E10}
+5n29*PAPEL{5E10}
+5n36*TIJERA{5E10}
+

@@ -1,0 +1,76 @@
+V "GNAT Lib v7"
+P ZX
+
+RN
+RV NO_IO
+RV SPARK_05
+
+U piedrapapeltijera%b	piedrapapeltijera.adb	2de4dfc3 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W partida%s		partida.adb		partida.ali
+W piedrapapeltijeraopciones%s  piedrapapeltijeraopciones.ads  piedrapapeltijeraopciones.ali
+W uiterminalpiedrapapeltijera%s  uiterminalpiedrapapeltijera.adb  uiterminalpiedrapapeltijera.ali
+
+U piedrapapeltijera%s	piedrapapeltijera.ads	a17d2027 EE NE OO PK
+W partida%s		partida.adb		partida.ali
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D partida.ads		20220222085401 10d6a197 partida%s
+D piedrapapeltijera.ads	20220222083802 b1ab81b0 piedrapapeltijera%s
+D piedrapapeltijera.adb	20220222085049 56c5edf5 piedrapapeltijera%b
+D piedrapapeltijeraopciones.ads  20220222085819 f268e4ad piedrapapeltijeraopciones%s
+D system.ads		20170510173650 4635ec04 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+D uiterminalpiedrapapeltijera.ads  20220222085836 e6128acc uiterminalpiedrapapeltijera%s
+X 1 ada.ads
+16K9*Ada 20e8 14|2r6 2r45 3r6 3r45
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 14|2w10 2r49
+X 7 a-textio.ads
+49K13*Text_IO 471e16 14|3w10 3r49
+X 12 partida.ads
+1K9*Partida 8e12 13|2w6 2r45 14|4w6 4r45
+3E10*RESULTADO 3e51 13|6r31 14|10r31 13r41 14r67
+3n24*ORDENADOR{3E10} 14|29r53 30r53 31r53
+3n35*JUGADOR{3E10} 14|25r53 26r53 27r53
+3n44*EMPATE{3E10} 14|21r53 22r53 23r53
+X 13 piedrapapeltijera.ads
+4K9*PiedraPapelTijera 8l5 8e22 14|8b14 44l5 44t22
+6V14*JugarMano{12|3E10} 14|10b14 42l9 42t18
+X 14 piedrapapeltijera.adb
+11e9 mano_ordenador{15|5E10} 34m9 38r47
+12e9 mano_jugador{15|5E10} 36m9 38r33
+13e9 ganador_mano{12|3E10} 38m9 40r16
+14a9 reglas(12|3E10) 21m9 22m9 23m9 25m9 26m9 27m9 29m9 30m9 31m9 38r25
+X 15 piedrapapeltijeraopciones.ads
+3K9*PiedraPapelTijeraOpciones 14|5w6 5r45 15|7e30
+5E10*OPCION 14|11r41 12r41 14r48 14r56 15|5e43
+5n21*PIEDRA{5E10} 14|21r21 21r33 25r21 26r33 29r21 30r33 34r27
+5n29*PAPEL{5E10} 14|22r21 22r33 26r21 27r33 29r33 31r21
+5n36*TIJERA{5E10} 14|23r21 23r33 25r33 27r21 30r21 31r33
+X 28 uiterminalpiedrapapeltijera.ads
+7K9*UITerminalPiedraPapelTijera 14|6w6 6r45 28|14e32
+12V14*obtener_opcion_jugador{15|5E10} 14|36s25
+

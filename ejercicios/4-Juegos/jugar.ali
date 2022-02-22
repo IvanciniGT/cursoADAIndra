@@ -1,0 +1,27 @@
+V "GNAT Lib v7"
+M P W=b
+P ZX
+
+RN
+RV SPARK_05
+
+U jugar%b		jugar.adb		0c0112ea NE OO SU
+W partida%s		partida.adb		partida.ali
+W piedrapapeltijera%s	piedrapapeltijera.adb	piedrapapeltijera.ali
+
+D jugar.adb		20220222084142 ad7c32cd jugar%b
+D partida.ads		20220222085401 10d6a197 partida%s
+D piedrapapeltijera.ads	20220222083802 b1ab81b0 piedrapapeltijera%s
+D system.ads		20170510173650 4635ec04 system%s
+X 1 jugar.adb
+5U11*Jugar 5b11 10l5 10t10
+6N5 NUMERO_DE_MANOS 9r48
+7e5 ganador{2|3E10} 9m5
+X 2 partida.ads
+1K9*Partida 1|2w6 2r45 2|8e12
+3E10*RESULTADO 1|7r13 2|3e51
+6V14*JugarPartida{3E10} 1|9s16
+X 3 piedrapapeltijera.ads
+4K9*PiedraPapelTijera 1|3w6 3r45 3|8e22
+6V14*JugarMano{2|3E10} 1|9r30
+
