@@ -27,17 +27,21 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U jugadores%b		jugadores.adb		03423bb3 OO PF PK
+U jugadores%b		jugadores.adb		b13abf22 OO PF PK
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
-Z ada.containers.generic_array_sort%s
+Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
+Z ada.containers.hash_tables.generic_keys%s
+Z ada.containers.hash_tables.generic_operations%s
 Z ada.containers.helpers%s  a-conhel.adb	a-conhel.ali
-W ada.containers.vectors%s
+W ada.containers.indefinite_hashed_maps%s
+Z ada.containers.prime_numbers%s  a-coprnu.adb	a-coprnu.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 Z ada.finalization%s	a-finali.ads		a-finali.ali
 Z ada.iterator_interfaces%s
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.hash%s	a-strhas.adb		a-strhas.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -58,7 +62,7 @@ W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 W system.val_int%s	s-valint.adb		s-valint.ali
 
-U jugadores%s		jugadores.ads		d11ed89c EE NE OO PK
+U jugadores%s		jugadores.ads		35832f9e EE NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
@@ -70,17 +74,23 @@ D ada.ads		20170106103348 76789da1 ada%s
 D a-charac.ads		20070912115821 2d3ec45b ada.characters%s
 D a-chlat1.ads		20140225151544 66457d31 ada.characters.latin_1%s
 D a-contai.ads		20151020122137 61e5e089 ada.containers%s
-D a-cgarso.ads		20070406091342 9129bfa8 ada.containers.generic_array_sort%s
+D a-cohata.ads		20151020102346 80a8c839 ada.containers.hash_tables%s
+D a-chtgke.ads		20151020102346 20177f7b ada.containers.hash_tables.generic_keys%s
+D a-chtgke.adb		20151020102346 7d66b1e3 ada.containers.hash_tables.generic_keys%b
+D a-chtgop.ads		20160418125822 bea86046 ada.containers.hash_tables.generic_operations%s
+D a-chtgop.adb		20160427131525 9dedfc44 ada.containers.hash_tables.generic_operations%b
 D a-conhel.ads		20160420102926 20298884 ada.containers.helpers%s
 D a-conhel.adb		20160427125518 9cc5095b ada.containers.helpers%b
-D a-convec.ads		20151023123735 7e2b0fdf ada.containers.vectors%s
-D a-convec.adb		20160427125518 1450cb2b ada.containers.vectors%b
+D a-cihama.ads		20151023123735 429cbbbf ada.containers.indefinite_hashed_maps%s
+D a-cihama.adb		20160420102926 c5d79cd3 ada.containers.indefinite_hashed_maps%b
+D a-coprnu.ads		20090409150019 0cdf1864 ada.containers.prime_numbers%s
 D a-except.ads		20151016123252 291912d5 ada.exceptions%s
 D a-finali.ads		20151020095656 bf4f806b ada.finalization%s
 D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
 D a-iteint.ads		20110906092602 7c7305e9 ada.iterator_interfaces%s
 D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
 D a-string.ads		20070406091342 90ac6797 ada.strings%s
+D a-strhas.ads		20140225151544 c71c2a52 ada.strings.hash%s
 D a-strmap.ads		20140611123156 e8bb714a ada.strings.maps%s
 D a-strunb.ads		20161012122725 ecdfa332 ada.strings.unbounded%s
 D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
@@ -89,8 +99,8 @@ D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
 D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D jugadores.ads		20220222110643 3dc17bae jugadores%s
-D jugadores.adb		20220222111401 941a1924 jugadores%b
+D jugadores.ads		20220223110252 d95c8cac jugadores%s
+D jugadores.adb		20220223110525 3954f485 jugadores%b
 D system.ads		20170510173650 4635ec04 system%s
 D s-atocou.ads		20151020101020 b45c2d8d system.atomic_counters%s
 D s-atocou.adb		20151020114917 b65612c0 system.atomic_counters%b
@@ -122,122 +132,127 @@ D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
 D s-valint.ads		20090409150019 48a52a3f system.val_int%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 20e8 24|1r6 2r5 25|1r6 1r23 2r6 2r37 3r6 7r36
+16K9*Ada 20e8 30|1r6 2r5 31|1r6 1r23 2r6 2r37 3r6 4r6 18r34 22r28
 X 4 a-contai.ads
-16K13*Containers 24e19 25|3r10 7r40
-X 8 a-convec.ads
-41I9 Index_Type 25|9r9
-42+9 Element_Type 25|10r9
-46k24*Vectors 518e27 25|3w21 7r51
-51I12*Extended_Index{integer}
-57R9*Vector<11|43R9> 25|14r16[7]
-65R9*Cursor 25|167r19[7]
-245U14*Append 25|28s19[7]
-261U14*Delete 25|171s23[7]
-305V13*Find_Index{51I12[25|7]} 25|171s41[7]
-X 13 a-iteint.ads
+16K13*Containers 24e19 31|4r10 18r38
+19M9*Hash_Type
+X 12 a-cihama.ads
+41+9 Key_Type 31|20r9
+42+9 Element_Type 31|21r9
+44V18 Hash{4|19M9} 31|22r9
+45V18 Equivalent_Keys{boolean} 31|23r9
+48k24*Indefinite_Hashed_Maps 453e42 31|4w21 18r49
+53R9*Map<16|43R9> 31|40r23[18]
+61R9*Cursor
+112V13*Key{string} 31|216s30[18]
+115V13*Element{30|6R10} 31|121s49[18]
+205U14*Include 31|55s25[18]
+236U14*Delete 31|197s29[18]
+271V13*Contains{boolean} 31|195s37[18] 206s37[18]
+274V13*Element{30|6R10} 31|161s33[18]
+294V13*Iterate{18|24C9[75[31|18]]} 31|120s39[18] 215s39[18]
+X 18 a-iteint.ads
+24C9*Forward_Iterator<24R9[12|75[31|18]]>
 24h9 Forward_Iterator
-32h9 Reversible_Iterator<24R9[8|72]>
-X 15 a-string.ads
-16K13*Strings 35e16 24|1r10 2r9 25|2r10 2r41
-X 17 a-strunb.ads
-76K21*Unbounded 490e26 24|1w18 2r17 25|2w18 2r49
-79R9*Unbounded_String<11|43R9> 474e14 24|7r29 8r29 25|17r44 18r44 101r48
-. 112r17 113r17 141r16 178r24
-94V13*To_Unbounded_String{79R9} 25|46s44 47s35 107s20 178s44
-100V13*To_String{string} 25|59s30 60s30 134s42 135s42 169s38
-166V14*"="{boolean} 25|181s30
-X 19 a-textio.ads
-49K13*Text_IO 471e16 25|1w10 1r27
-52P9*File_Type 25|35r20 57r50 67r20 83r20
-53n23*In_File{53E9} 25|41r25
-53n32*Out_File{53E9} 25|88r25
-53n42*Append_File{53E9} 25|72r25
-86U14*Create 25|86s9
-87p7 File{52P9} 25|87r13
-88e7 Mode{53E9} 25|88r13
-89a7 Name{string} 25|89r13
-92U14*Open 25|39s9 70s9
-93p7 File{52P9} 25|40r13 71r13
-94e7 Mode{53E9} 25|41r13 72r13
-95a7 Name{string} 25|42r13 73r13
-98U14*Close 25|52s9 78s9 96s9
-183V13*End_Of_File{boolean} 25|45s19
-253V13*Get_Line{string} 25|46s64 47s55 48s49 49s49
-256V13*Get_Line{string} 25|105s40
-259U14*Put_Line 25|59s9 60s9 61s9 62s9
-263U14*Put_Line 25|103s9 117s9 122s9 134s9 135s9 136s9 146s9
-X 24 jugadores.ads
-4K9*Jugadores 35l5 35e14 25|5b14 196l5 196t14
-6R10*Jugador 11e15 13r34 15r39 17r52 19r49 21r49 25r38 27r70 25|10r28 20r67
-. 21r17 36r17 57r69 66r41 111r34 114r17 132r39 140r52 150r49 157r50 164r38
-. 166r21 177r70
-7r9*Nombre{17|79R9} 25|23m19 59r47 134r59 169r55 181r23
-8r9*Email{17|79R9} 25|24m19 60r47 135r59 145m16
-9i9*PartidasJugadas{integer} 25|25m19 61r37 137r49 153m16 153r42
-10i9*PartidasGanadas{integer} 25|26m19 62r37 136r49 160m16 160r42
-13V14*NuevoJugador{6R10} 25|111b14 130l9 130t21
-15U15*ImprimirJugador 15>31 25|132b15 138l9 138t24 192s13
-15r31 player{6R10} 25|132b31 134r52 135r52 136r42 137r42
-17U15*ModificarEmailJugador 17=37 25|140b15 148l9 148t30
-17r37 player{6R10} 25|140b37 145m9
-19U15*AnotarNuevaPartida 19=34 25|150b15 155l9 155t27
-19r34 player{6R10} 25|150b34 153m9 153r35
-21U15*AnotarPartidaGanada 21=35 25|157b15 162l9 162t28
-21r35 player{6R10} 25|157b35 160m9 160r35
-25V14*EliminarJugador{boolean} 25>30 25|164b14 175l9 175t24
-25r30 player{6R10} 25|164b30 169r48 171r52
-27V14*RecuperarJugador{boolean} 27>31 27<47 25|169s21 177b14 187t8
-27a31 nombre{string} 25|177b31 178r64
-27r47 jugadorEncontrado{6R10} 25|177b47 182m17
-29U15*ListarJugadores 25|189b15 194l9 194t24
-33V14*cargarJugadores{boolean} 25|34b14 54l9 54t24
-X 25 jugadores.adb
-7K13 VectorJugadores[8|46] 13r9
-14r5 JUGADORES{8|57R9[7]} 28m9 28r9 92r23 171m13 171r13 171r31 180r23 191r23
-15a5 nombre_fichero_jugadores{string} 42r25 73r25 89r25
-17V14 cargarJugadorEnCache{24|6R10} 17b14 17>36 18>37 19>37 20>37 30l9 30t29
-. 46s22 124s18
-17r36 nombre{17|79R9} 23r41 124r40
-18r37 email{17|79R9} 24r41 125r40
-19i37 jugadas{integer} 25r41
-20i37 ganadas{integer} 26r41
-21r9 player{24|6R10} 23m9 23r9 28r26 29r16
-35p9 miFichero{19|52P9} 40m25 40r25 45r31 46r73 47r64 48r58 49r58 52m16 52r16
-36r9 player{24|6R10} 46m13 46r13
-57U15 guardarJugadorEnFichero 57b15 57>39 57>61 63l9 63t32 76s9 93s13
-57p39 miFichero{19|52P9} 59r19 60r19 61r19 62r19
-57r61 player{24|6R10} 59r40 60r40 61r30 62r30
-66V14 addJugadorEnFichero{boolean} 66b14 66>34 80l9 80t28 127s21
-66r34 player{24|6R10} 76r45
-67p9 miFichero{19|52P9} 71m25 71r25 76r34 78m16 78r16
-82V14 reescribirFicheroJugadores{boolean} 82b14 98l9 98t35 147s21 154s21
-. 161s21 172s25
-83p9 miFichero{19|52P9} 87m25 87r25 93r38 96m16 96r16
-92r13 player{24|6R10} 93r49
-101V14 leerDato{17|79R9} 101b14 101>24 109l9 109t17 119s19 120s19 144s19
-101a24 mensaje{string} 103r18
-105a13 leido{string} 107r40
-112r9 nombre{17|79R9} 119m9 124r62
-113r9 email{17|79R9} 120m9 125r62
-114r9 player{24|6R10} 124m9 124r9 127r41 128r16
-115b9 resultado{boolean} 127m9
-141r9 email{17|79R9} 144m9 145r25
-142b9 resultado{boolean} 147m9
-151b9 resultado{boolean} 154m9
-158b9 resultado{boolean} 161m9
-165b9 resultado{boolean} 169m9 170r12 172m13 174r16
-166r9 encontrado{24|6R10} 169m64 169r64
-167r9 posicion{8|65R9[7]}
-178r9 nombreJugador{17|79R9} 181r32
-180r13 player{24|6R10} 181r16 182r38
-191r13 player{24|6R10} 192r30
-X 26 system.ads
+X 20 a-string.ads
+16K13*Strings 35e16 30|1r10 2r9 31|2r10 2r41 3r10 22r32
+X 21 a-strhas.ads
+20V22*Hash{4|19M9} 31|3w18 22r40
+X 23 a-strunb.ads
+76K21*Unbounded 490e26 30|1w18 2r17 31|2w18 2r49
+79R9*Unbounded_String<16|43R9> 474e14 30|7r29 8r29 31|44r44 45r44 129r48
+. 140r18 141r17 169r16
+94V13*To_Unbounded_String{79R9} 31|74s44 75s35 135s20
+100V13*To_String{string} 31|55s33 87s30 88s30 155s16 162s42 163s42
+X 25 a-textio.ads
+49K13*Text_IO 471e16 31|1w10 1r27
+52P9*File_Type 31|63r20 85r50 95r20 111r20
+53n23*In_File{53E9} 31|69r25
+53n32*Out_File{53E9} 31|116r25
+53n42*Append_File{53E9} 31|100r25
+86U14*Create 31|114s9
+87p7 File{52P9} 31|115r13
+88e7 Mode{53E9} 31|116r13
+89a7 Name{string} 31|117r13
+92U14*Open 31|67s9 98s9
+93p7 File{52P9} 31|68r13 99r13
+94e7 Mode{53E9} 31|69r13 100r13
+95a7 Name{string} 31|70r13 101r13
+98U14*Close 31|80s9 106s9 124s9
+183V13*End_Of_File{boolean} 31|73s19
+253V13*Get_Line{string} 31|74s64 75s55 76s49 77s49
+256V13*Get_Line{string} 31|133s40
+259U14*Put_Line 31|87s9 88s9 89s9 90s9
+263U14*Put_Line 31|131s9 145s9 149s9 162s9 163s9 164s9 174s9
+X 30 jugadores.ads
+4K9*Jugadores 35l5 35e14 31|6b14 220l5 220t14
+6R10*Jugador 11e15 27r70 31|21r28 47r67 48r17 64r17 85r69 94r41 142r17 159r17
+. 203r70
+7r9*Nombre{23|79R9} 31|50m19 87r47 162r59
+8r9*Email{23|79R9} 31|51m19 88r47 163r59 173m29
+9i9*PartidasJugadas{integer} 31|52m19 89r37 165r49 181m29 181r68
+10i9*PartidasGanadas{integer} 31|53m19 90r37 164r49 188m29 188r68
+13V14*NuevoJugador{string} 31|139b14 156l9 156t21
+15U15*ImprimirJugador 15>31 31|158b15 166l9 166t24 216s13
+15a31 id{string} 31|158b31 161r41
+17U15*ModificarEmailJugador 17>37 31|168b15 176l9 176t30
+17a37 id{string} 31|168b37 173r25
+19U15*AnotarNuevaPartida 19>34 31|178b15 183l9 183t27
+19a34 id{string} 31|178b34 181r25 181r64
+21U15*AnotarPartidaGanada 21>35 31|185b15 190l9 190t28
+21a35 id{string} 31|185b35 188r25 188r64
+25V14*EliminarJugador{boolean} 25>30 31|192b14 201l9 201t24
+25a30 id{string} 31|192b30 195r47 197r37
+27V14*RecuperarJugador{boolean} 27>31 27<47 31|203b14 211t8
+27a31 nombre{string} 31|203b31 206r47 208r49
+27r47 jugadorEncontrado{6R10} 31|203b47 208m13
+29U15*ListarJugadores 31|213b15 218l9 218t24
+33V14*cargarJugadores{boolean} 31|62b14 82l9 82t24
+X 31 jugadores.adb
+18K13 MapaJugadores[12|48] 25r9
+40r5 DATOS_JUGADORES{12|53R9[18]} 55m9 55r9 120r23 161r17 173r9 181r9 181r48
+. 188r9 188r48 195r21 197m13 197r13 206r21 208r32 215r23
+42a5 nombre_fichero_jugadores{string} 70r25 101r25 117r25
+44V14 cargarJugadorEnCache{30|6R10} 44b14 44>36 45>37 46>37 47>37 58l9 58t29
+. 74s22 151s18
+44r36 nombre{23|79R9} 50r41 55r43 151r40
+45r37 email{23|79R9} 51r41 152r40
+46i37 jugadas{integer} 52r41
+47i37 ganadas{integer} 53r41
+48r9 player{30|6R10} 50m9 50r9 55r52 57r16
+63p9 miFichero{25|52P9} 68m25 68r25 73r31 74r73 75r64 76r58 77r58 80m16 80r16
+64r9 player{30|6R10} 74m13 74r13
+85U15 guardarJugadorEnFichero 85b15 85>39 85>61 91l9 91t32 104s9 121s13
+85p39 miFichero{25|52P9} 87r19 88r19 89r19 90r19
+85r61 player{30|6R10} 87r40 88r40 89r30 90r30
+94V14 addJugadorEnFichero{boolean} 94b14 94>34 108l9 108t28 154s21
+94r34 player{30|6R10} 104r45
+95p9 miFichero{25|52P9} 99m25 99r25 104r34 106m16 106r16
+110V14 reescribirFicheroJugadores{boolean} 110b14 126l9 126t35 175s21 182s21
+. 189s21 198s25
+111p9 miFichero{25|52P9} 115m25 115r25 121r38 124m16 124r16
+120i13 cursor{any type} 121r57
+129V14 leerDato{23|79R9} 129b14 129>24 137l9 137t17 146s19 147s19 172s19
+129a24 mensaje{string} 131r18
+133a13 leido{string} 135r40
+140r9 nombre{23|79R9} 146m9 151r62 155r26
+141r9 email{23|79R9} 147m9 152r62
+142r9 player{30|6R10} 151m9 151r9 154r41
+143b9 resultado{boolean} 154m9
+159r9 player{30|6R10} 161m9 161r9 162r52 163r52 164r42 165r42
+169r9 email{23|79R9} 172m9 173r38
+170b9 resultado{boolean} 175m9
+179b9 resultado{boolean} 182m9
+186b9 resultado{boolean} 189m9
+193b9 resultado{boolean} 195m9 196r12 198m13 200r16
+204b9 resultado{boolean} 206m9 207r12 210r16
+215i13 cursor{any type} 216r34
+X 32 system.ads
 67M9*Address
-X 37 s-memory.ads
-53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
+X 43 s-memory.ads
+53V13*Alloc{32|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
-X 44 s-stalib.adb
+76V13*Realloc{32|67M9} 105i<c,__gnat_realloc>22
+X 50 s-stalib.adb
 93U14 Break_Start 94i<c,__gnat_break_start>22
 

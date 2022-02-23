@@ -1,27 +1,28 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Strings.Unbounded;     use Ada.Strings.Unbounded;
 with Ada.Strings.Hash;
-with Ada.Containers.Hashed_Maps;
+with Ada.Containers.Indefinite_Hashed_Maps;
 
 package body Jugadores is
 
 --    package VectorJugadores is new Ada.Containers.Vectors
 --    (
 --        Index_Type      => Positive,  -- Empieza en 1
---        Element_Type    => DatosJugador
+--        Element_Type    => Jugador
 --    );
     
 --    use VectorJugadores;
 --    DATOS_JUGADORES:  Vector;  -- cache
 
 
-    package MapaJugadores is new Ada.Containers.Hashed_Maps
+    package MapaJugadores is new Ada.Containers.Indefinite_Hashed_Maps
     (
-        Key_Type    => String,
-        Element_Type    => DatosJugador,
+        Key_Type        => String,
+        Element_Type    => Jugador,
         Hash            => Ada.Strings.Hash,
         Equivalent_Keys => "=" 
     );
+    use MapaJugadores;
     
 --    procedure Include (Container : in out Map;
 --                      Key       : in     Key_Type;
@@ -36,14 +37,7 @@ package body Jugadores is
 --    function Element (Container : Map;
 --                     Key       : Key_Type)
 
-    use MapaJugadores;
     DATOS_JUGADORES:  Map;  -- cache
-
-
-
-
-
-
 
     nombre_fichero_jugadores: constant String := "jugadores.db";
 
@@ -51,16 +45,16 @@ package body Jugadores is
                                     email: Unbounded_String; 
                                     jugadas: Integer := 0; 
                                     ganadas: Integer := 0) return Jugador is
-        player: DatosJugador;
+        player: Jugador;
     begin
         player:=( Nombre             => nombre ,
                   Email              => email ,
                   PartidasJugadas    => jugadas ,
                   PartidasGanadas    => ganadas);
 
-        DATOS_JUGADORES.append(player); -- se guarda el original... o una copia
+        DATOS_JUGADORES.Include(To_String(nombre), player); -- se guarda el original... o una copia
                                         -- yo no tengo npi
-        return DATOS_JUGADORES.last_element'access; -- Esto me puede estar dando una copia
+        return player; -- Esto me puede estar dando una copia
     end cargarJugadorEnCache;
 
 
@@ -88,7 +82,7 @@ package body Jugadores is
     end cargarJugadores;    
     
 
-    procedure guardarJugadorEnFichero(miFichero: File_type; player: DatosJugador ) is
+    procedure guardarJugadorEnFichero(miFichero: File_type; player: Jugador ) is
     begin
         Put_Line( miFichero, To_String(player.nombre) );
         Put_Line( miFichero, To_String(player.email ));
@@ -97,7 +91,7 @@ package body Jugadores is
     end guardarJugadorEnFichero;
 
 
-    function addJugadorEnFichero(player:DatosJugador) return Boolean is
+    function addJugadorEnFichero(player:Jugador) return Boolean is
         miFichero: File_type;
     begin
         -- Tengo que crear un fichero? NO... Abrir el fichero para añadirle cosas
@@ -123,8 +117,8 @@ package body Jugadores is
             Name    =>  nombre_fichero_jugadores -- Nombre del fichero en mi disco duro.. en mis carpetas
         );
         -- Guardo cada jugador en el fichero
-        for player of DATOS_JUGADORES loop
-            guardarJugadorEnFichero( miFichero, player );
+        for cursor in DATOS_JUGADORES.iterate loop
+            guardarJugadorEnFichero( miFichero, Element(cursor) );
         end loop;
         
         Close( miFichero );
@@ -142,14 +136,13 @@ package body Jugadores is
         end;
     end leerDato;
 
-    function NuevoJugador return Jugador is
-        nombre: Unbounded_String;
+    function NuevoJugador return String is
+        nombre:  Unbounded_String;
         email:  Unbounded_String;
         player: Jugador;
         resultado: Boolean;
     begin
         Put_Line("Alta de nuevo jugador:");
-
         nombre := leerDato("Dime tu nombre:");
         email  := leerDato("Dime tu email:");
 
@@ -158,71 +151,69 @@ package body Jugadores is
         player:= cargarJugadorEnCache( Nombre             => nombre ,
                                        Email              => email);
 
-        resultado:= addJugadorEnFichero(player.all);
-        return player; -- Esto me puede estar dando una copia de la copia
-        
+        resultado:= addJugadorEnFichero(player);
+        return To_String(nombre); -- Esto me puede estar dando una copia de la copia
     end NuevoJugador;
     
-    procedure ImprimirJugador(player: Jugador)  is
+    procedure ImprimirJugador(id: String)  is
+        player: Jugador;
     begin
+        player:=DATOS_JUGADORES.Element(id);
         Put_Line("Datos del jugador: " & To_String(player.Nombre) );
         Put_Line("  Email:           " & To_String(player.email) );
         Put_Line("  Estadísticas:   " & player.PartidasGanadas'Image & " /"
                                        & player.PartidasJugadas'Image );
     end ImprimirJugador;
 
-    procedure ModificarEmailJugador(player: Jugador) is
+    procedure ModificarEmailJugador(id: String) is
         email: Unbounded_String;
         resultado: Boolean;
     begin
         email  := leerDato("Dime tu nuevo email:");
-        player.Email := email;
+        DATOS_JUGADORES(id).Email := email;
         Put_Line("Muchas gracias por la información");
         resultado:= reescribirFicheroJugadores;
     end ModificarEmailJugador;
 
-    procedure AnotarNuevaPartida(player: Jugador) is
+    procedure AnotarNuevaPartida(id: String) is
         resultado: Boolean;
     begin
-        player.PartidasJugadas := player.PartidasJugadas + 1;
+        DATOS_JUGADORES(id).PartidasJugadas := DATOS_JUGADORES(id).PartidasJugadas + 1;
         resultado:= reescribirFicheroJugadores;
     end AnotarNuevaPartida;
     
-    procedure AnotarPartidaGanada(player: Jugador) is
+    procedure AnotarPartidaGanada(id: String) is
         resultado: Boolean;
     begin
-        player.PartidasGanadas := player.PartidasGanadas + 1;
+        DATOS_JUGADORES(id).PartidasGanadas := DATOS_JUGADORES(id).PartidasGanadas + 1;
         resultado:= reescribirFicheroJugadores;
     end AnotarPartidaGanada;
 
-    function EliminarJugador(player: Jugador) return Boolean is
+    function EliminarJugador(id: String) return Boolean is
         resultado: Boolean;
-        encontrado: Jugador;
     begin
-        resultado:= RecuperarJugador(To_String(player.nombre), encontrado);
+        resultado:= DATOS_JUGADORES.Contains( id );
         if resultado then
-            DATOS_JUGADORES.Delete( DATOS_JUGADORES.Find_index(player.all) );
+            DATOS_JUGADORES.Delete( id );
             resultado:= reescribirFicheroJugadores;
         end if;
         return resultado;
     end EliminarJugador;
 
     function RecuperarJugador(nombre: String; jugadorEncontrado: out Jugador ) return Boolean is
-        nombreJugador: Unbounded_String := To_Unbounded_String(nombre);
+        resultado: Boolean;
     begin
-        for player of DATOS_JUGADORES loop
-            if player.Nombre = nombreJugador then
-                jugadorEncontrado := player'access;
-                return True;
-            end if;
-        end loop;
-        return False;
+        resultado:= DATOS_JUGADORES.Contains( nombre );
+        if resultado then
+            jugadorEncontrado:=DATOS_JUGADORES( nombre );
+        end if;
+        return resultado;
     end;
 
     procedure ListarJugadores is
     begin
-        for player of DATOS_JUGADORES loop
-            ImprimirJugador( player'access );
+        for cursor in DATOS_JUGADORES.iterate loop
+            ImprimirJugador( Key(cursor) );
         end loop;
     end ListarJugadores;
 
