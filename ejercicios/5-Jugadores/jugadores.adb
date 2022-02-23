@@ -1,32 +1,66 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Strings.Unbounded;     use Ada.Strings.Unbounded;
-with Ada.Containers.Vectors;
+with Ada.Strings.Hash;
+with Ada.Containers.Hashed_Maps;
 
 package body Jugadores is
 
-    package VectorJugadores is new Ada.Containers.Vectors
+--    package VectorJugadores is new Ada.Containers.Vectors
+--    (
+--        Index_Type      => Positive,  -- Empieza en 1
+--        Element_Type    => DatosJugador
+--    );
+    
+--    use VectorJugadores;
+--    DATOS_JUGADORES:  Vector;  -- cache
+
+
+    package MapaJugadores is new Ada.Containers.Hashed_Maps
     (
-        Index_Type      => Positive,  -- Empieza en 1
-        Element_Type    => Jugador
+        Key_Type    => String,
+        Element_Type    => DatosJugador,
+        Hash            => Ada.Strings.Hash,
+        Equivalent_Keys => "=" 
     );
     
-    use VectorJugadores;
-    JUGADORES: Vector;  -- cache
+--    procedure Include (Container : in out Map;
+--                      Key       : in     Key_Type;
+--                      New_Item  : in     Element_Type);
+--   procedure Replace (Container : in out Map;
+--                      Key       : in     Key_Type;
+--                      New_Item  : in     Element_Type);
+--   procedure Delete (Container : in out Map;
+--                     Key       : in     Key_Type);
+--   function Contains (Container : Map;
+--                      Key       : Key_Type) return Boolean;
+--    function Element (Container : Map;
+--                     Key       : Key_Type)
+
+    use MapaJugadores;
+    DATOS_JUGADORES:  Map;  -- cache
+
+
+
+
+
+
+
     nombre_fichero_jugadores: constant String := "jugadores.db";
 
     function cargarJugadorEnCache( nombre: Unbounded_String; 
                                     email: Unbounded_String; 
                                     jugadas: Integer := 0; 
                                     ganadas: Integer := 0) return Jugador is
-        player: Jugador;
+        player: DatosJugador;
     begin
         player:=( Nombre             => nombre ,
                   Email              => email ,
                   PartidasJugadas    => jugadas ,
                   PartidasGanadas    => ganadas);
 
-        JUGADORES.append(player);
-        return player; -- Esto me puede estar dando una copia
+        DATOS_JUGADORES.append(player); -- se guarda el original... o una copia
+                                        -- yo no tengo npi
+        return DATOS_JUGADORES.last_element'access; -- Esto me puede estar dando una copia
     end cargarJugadorEnCache;
 
 
@@ -54,7 +88,7 @@ package body Jugadores is
     end cargarJugadores;    
     
 
-    procedure guardarJugadorEnFichero(miFichero: File_type; player: Jugador ) is
+    procedure guardarJugadorEnFichero(miFichero: File_type; player: DatosJugador ) is
     begin
         Put_Line( miFichero, To_String(player.nombre) );
         Put_Line( miFichero, To_String(player.email ));
@@ -63,7 +97,7 @@ package body Jugadores is
     end guardarJugadorEnFichero;
 
 
-    function addJugadorEnFichero(player:Jugador) return Boolean is
+    function addJugadorEnFichero(player:DatosJugador) return Boolean is
         miFichero: File_type;
     begin
         -- Tengo que crear un fichero? NO... Abrir el fichero para añadirle cosas
@@ -89,7 +123,7 @@ package body Jugadores is
             Name    =>  nombre_fichero_jugadores -- Nombre del fichero en mi disco duro.. en mis carpetas
         );
         -- Guardo cada jugador en el fichero
-        for player of JUGADORES loop
+        for player of DATOS_JUGADORES loop
             guardarJugadorEnFichero( miFichero, player );
         end loop;
         
@@ -124,7 +158,7 @@ package body Jugadores is
         player:= cargarJugadorEnCache( Nombre             => nombre ,
                                        Email              => email);
 
-        resultado:= addJugadorEnFichero(player);
+        resultado:= addJugadorEnFichero(player.all);
         return player; -- Esto me puede estar dando una copia de la copia
         
     end NuevoJugador;
@@ -137,7 +171,7 @@ package body Jugadores is
                                        & player.PartidasJugadas'Image );
     end ImprimirJugador;
 
-    procedure ModificarEmailJugador(player: in out Jugador) is
+    procedure ModificarEmailJugador(player: Jugador) is
         email: Unbounded_String;
         resultado: Boolean;
     begin
@@ -147,14 +181,14 @@ package body Jugadores is
         resultado:= reescribirFicheroJugadores;
     end ModificarEmailJugador;
 
-    procedure AnotarNuevaPartida(player: in out Jugador) is
+    procedure AnotarNuevaPartida(player: Jugador) is
         resultado: Boolean;
     begin
         player.PartidasJugadas := player.PartidasJugadas + 1;
         resultado:= reescribirFicheroJugadores;
     end AnotarNuevaPartida;
     
-    procedure AnotarPartidaGanada(player: in out Jugador) is
+    procedure AnotarPartidaGanada(player: Jugador) is
         resultado: Boolean;
     begin
         player.PartidasGanadas := player.PartidasGanadas + 1;
@@ -164,11 +198,10 @@ package body Jugadores is
     function EliminarJugador(player: Jugador) return Boolean is
         resultado: Boolean;
         encontrado: Jugador;
-        posicion: Cursor;
     begin
         resultado:= RecuperarJugador(To_String(player.nombre), encontrado);
         if resultado then
-            JUGADORES.Delete( JUGADORES.Find_index(player) );
+            DATOS_JUGADORES.Delete( DATOS_JUGADORES.Find_index(player.all) );
             resultado:= reescribirFicheroJugadores;
         end if;
         return resultado;
@@ -177,9 +210,9 @@ package body Jugadores is
     function RecuperarJugador(nombre: String; jugadorEncontrado: out Jugador ) return Boolean is
         nombreJugador: Unbounded_String := To_Unbounded_String(nombre);
     begin
-        for player of JUGADORES loop
+        for player of DATOS_JUGADORES loop
             if player.Nombre = nombreJugador then
-                jugadorEncontrado := player;
+                jugadorEncontrado := player'access;
                 return True;
             end if;
         end loop;
@@ -188,8 +221,8 @@ package body Jugadores is
 
     procedure ListarJugadores is
     begin
-        for player of JUGADORES loop
-            ImprimirJugador( player );
+        for player of DATOS_JUGADORES loop
+            ImprimirJugador( player'access );
         end loop;
     end ListarJugadores;
 
