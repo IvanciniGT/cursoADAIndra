@@ -33,3 +33,7 @@ MD5
 LETRA DNI
 
 Ada.Strings.Hash
+
+
+
+gnatmake -o bin/juego -D obj -Isrc/ui -Isrc/piedrapapeltijera -Isrc/piedrapapeltijera/ui -I../5-Jugadores src/jugar.adb

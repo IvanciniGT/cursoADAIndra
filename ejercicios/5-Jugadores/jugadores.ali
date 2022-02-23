@@ -27,7 +27,7 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U jugadores%b		jugadores.adb		5c6259b0 OO PF PK
+U jugadores%b		jugadores.adb		7de62cd5 OO PF PK
 W ada%s			ada.ads			ada.ali
 W ada.containers%s	a-contai.ads		a-contai.ali
 Z ada.containers.hash_tables%s  a-cohata.ads	a-cohata.ali
@@ -100,7 +100,7 @@ D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
 D jugadores.ads		20220223110252 d95c8cac jugadores%s
-D jugadores.adb		20220223112413 d40c1217 jugadores%b
+D jugadores.adb		20220223113759 f5886772 jugadores%b
 D system.ads		20170510173650 4635ec04 system%s
 D s-atocou.ads		20151020101020 b45c2d8d system.atomic_counters%s
 D s-atocou.adb		20151020114917 b65612c0 system.atomic_counters%b
@@ -144,15 +144,15 @@ X 12 a-cihama.ads
 48k24*Indefinite_Hashed_Maps 453e42 31|4w21 18r49
 53R9*Map<16|43R9> 31|40r23[18]
 61R9*Cursor
-112V13*Key{string} 31|217s30[18]
-115V13*Element{30|6R10} 31|122s49[18]
+112V13*Key{string} 31|226s30[18]
+115V13*Element{30|6R10} 31|131s49[18]
 205U14*Include 31|55s25[18]
-236U14*Delete 31|198s29[18]
-271V13*Contains{boolean} 31|196s37[18] 207s37[18]
-274V13*Element{30|6R10} 31|162s33[18]
-294V13*Iterate{18|24C9[75[31|18]]} 31|121s39[18] 216s39[18]
+236U14*Delete 31|207s29[18]
+271V13*Contains{boolean} 31|205s37[18] 216s37[18]
+274V13*Element{30|6R10} 31|171s33[18]
+294V13*Iterate{18|24C9[75[31|18]]} 31|130s39[18] 225s39[18]
 X 18 a-iteint.ads
-24h9 Forward_Iterator
+24h9*Forward_Iterator
 24C9*Forward_Iterator<24R9[12|75[31|18]]>
 X 20 a-string.ads
 16K13*Strings 35e16 30|1r10 2r9 31|2r10 2r41 3r10 22r32
@@ -160,93 +160,97 @@ X 21 a-strhas.ads
 20V22*Hash{4|19M9} 31|3w18 22r40
 X 23 a-strunb.ads
 76K21*Unbounded 490e26 30|1w18 2r17 31|2w18 2r49
-79R9*Unbounded_String<16|43R9> 474e14 30|7r29 8r29 31|44r44 45r44 130r48
-. 141r18 142r17 170r16
-94V13*To_Unbounded_String{79R9} 31|75s31 76s31 136s20
-100V13*To_String{string} 31|55s33 88s30 89s30 156s16 163s42 164s42
+79R9*Unbounded_String<16|43R9> 474e14 30|7r29 8r29 31|44r44 45r44 65r17 66r16
+. 139r48 150r18 151r17 179r16
+94V13*To_Unbounded_String{79R9} 31|79s23 80s23 145s20
+100V13*To_String{string} 31|55s33 97s30 98s30 165s16 172s42 173s42
 X 25 a-textio.ads
 49K13*Text_IO 471e16 31|1w10 1r27
-52P9*File_Type 31|63r20 86r50 96r20 112r20
-53n23*In_File{53E9} 31|69r25
-53n32*Out_File{53E9} 31|117r25
-53n42*Append_File{53E9} 31|101r25
-86U14*Create 31|115s9
-87p7 File{52P9} 31|116r13
-88e7 Mode{53E9} 31|117r13
-89a7 Name{string} 31|118r13
-92U14*Open 31|67s9 99s9
-93p7 File{52P9} 31|68r13 100r13
-94e7 Mode{53E9} 31|69r13 101r13
-95a7 Name{string} 31|70r13 102r13
-98U14*Close 31|81s9 107s9 125s9
-183V13*End_Of_File{boolean} 31|73s19
-253V13*Get_Line{string} 31|75s51 76s51 77s46 78s46
-256V13*Get_Line{string} 31|134s40
-259U14*Put_Line 31|88s9 89s9 90s9 91s9
-263U14*Put_Line 31|132s9 146s9 150s9 163s9 164s9 165s9 175s9
+52P9*File_Type 31|63r20 95r50 105r20 121r20
+53n23*In_File{53E9} 31|74r25
+53n32*Out_File{53E9} 31|126r25
+53n42*Append_File{53E9} 31|110r25
+86U14*Create 31|124s9
+87p7 File{52P9} 31|125r13
+88e7 Mode{53E9} 31|126r13
+89a7 Name{string} 31|127r13
+92U14*Open 31|72s9 108s9
+93p7 File{52P9} 31|73r13 109r13
+94e7 Mode{53E9} 31|74r13 110r13
+95a7 Name{string} 31|75r13 111r13
+98U14*Close 31|90s9 116s9 134s9
+183V13*End_Of_File{boolean} 31|78s19
+253V13*Get_Line{string} 31|79s43 80s43 81s38 82s38
+256V13*Get_Line{string} 31|143s40
+259U14*Put_Line 31|97s9 98s9 99s9 100s9
+263U14*Put_Line 31|141s9 155s9 159s9 172s9 173s9 174s9 184s9
 X 30 jugadores.ads
-4K9*Jugadores 35l5 35e14 31|6b14 221l5 221t14
-6R10*Jugador 11e15 27r70 31|21r28 47r67 48r17 64r17 86r69 95r41 143r17 160r17
-. 204r70
-7r9*Nombre{23|79R9} 31|50m19 88r47 163r59
-8r9*Email{23|79R9} 31|51m19 89r47 164r59 174m29
-9i9*PartidasJugadas{integer} 31|52m19 90r37 166r49 182m29 182r68
-10i9*PartidasGanadas{integer} 31|53m19 91r37 165r49 189m29 189r68
-13V14*NuevoJugador{string} 31|140b14 157l9 157t21
-15U15*ImprimirJugador 15>31 31|159b15 167l9 167t24 217s13
-15a31 id{string} 31|159b31 162r41
-17U15*ModificarEmailJugador 17>37 31|169b15 177l9 177t30
-17a37 id{string} 31|169b37 174r25
-19U15*AnotarNuevaPartida 19>34 31|179b15 184l9 184t27
-19a34 id{string} 31|179b34 182r25 182r64
-21U15*AnotarPartidaGanada 21>35 31|186b15 191l9 191t28
-21a35 id{string} 31|186b35 189r25 189r64
-25V14*EliminarJugador{boolean} 25>30 31|193b14 202l9 202t24
-25a30 id{string} 31|193b30 196r47 198r37
-27V14*RecuperarJugador{boolean} 27>31 27<47 31|204b14 212t8
-27a31 nombre{string} 31|204b31 207r47 209r49
-27r47 jugadorEncontrado{6R10} 31|204b47 209m13
-29U15*ListarJugadores 31|214b15 219l9 219t24
-33V14*cargarJugadores{boolean} 31|62b14 83l9 83t24
+4K9*Jugadores 35l5 35e14 31|6b14 230l5 230t14
+6R10*Jugador 11e15 27r70 31|21r28 47r67 48r17 64r17 95r69 104r41 152r17 169r17
+. 213r70
+7r9*Nombre{23|79R9} 31|50m19 97r47 172r59
+8r9*Email{23|79R9} 31|51m19 98r47 173r59 183m29
+9i9*PartidasJugadas{integer} 31|52m19 99r37 175r49 191m29 191r68
+10i9*PartidasGanadas{integer} 31|53m19 100r37 174r49 198m29 198r68
+13V14*NuevoJugador{string} 31|149b14 166l9 166t21
+15U15*ImprimirJugador 15>31 31|168b15 176l9 176t24 226s13
+15a31 id{string} 31|168b31 171r41
+17U15*ModificarEmailJugador 17>37 31|178b15 186l9 186t30
+17a37 id{string} 31|178b37 183r25
+19U15*AnotarNuevaPartida 19>34 31|188b15 193l9 193t27
+19a34 id{string} 31|188b34 191r25 191r64
+21U15*AnotarPartidaGanada 21>35 31|195b15 200l9 200t28
+21a35 id{string} 31|195b35 198r25 198r64
+25V14*EliminarJugador{boolean} 25>30 31|202b14 211l9 211t24
+25a30 id{string} 31|202b30 205r47 207r37
+27V14*RecuperarJugador{boolean} 27>31 27<47 31|213b14 221t8
+27a31 nombre{string} 31|213b31 216r47 218r49
+27r47 jugadorEncontrado{6R10} 31|213b47 218m13
+29U15*ListarJugadores 31|223b15 228l9 228t24
+33V14*cargarJugadores{boolean} 31|62b14 92l9 92t24
 X 31 jugadores.adb
 18K13 MapaJugadores[12|48] 25r9
-40r5 DATOS_JUGADORES{12|53R9[18]} 55m9 55r9 121r23 162r17 174r9 182r9 182r48
-. 189r9 189r48 196r21 198m13 198r13 207r21 209r32 216r23
-42a5 nombre_fichero_jugadores{string} 70r25 102r25 118r25
+40r5 DATOS_JUGADORES{12|53R9[18]} 55m9 55r9 130r23 171r17 183r9 191r9 191r48
+. 198r9 198r48 205r21 207m13 207r13 216r21 218r32 225r23
+42a5 nombre_fichero_jugadores{string} 75r25 111r25 127r25
 44V14 cargarJugadorEnCache{30|6R10} 44b14 44>36 45>37 46>37 47>37 58l9 58t29
-. 74s22 152s18
-44r36 nombre{23|79R9} 50r41 55r43 75r21 152r40
-45r37 email{23|79R9} 51r41 76r21 153r40
-46i37 ganadas{integer} 53r41 78r21
-47i37 jugadas{integer} 52r41 77r21
+. 83s22 161s18
+44r36 nombre{23|79R9} 50r41 55r43 84r21 161r40
+45r37 email{23|79R9} 51r41 85r21 162r40
+46i37 jugadas{integer} 52r41 86r21
+47i37 ganadas{integer} 53r41 87r21
 48r9 player{30|6R10} 50m9 50r9 55r52 57r16
-63p9 miFichero{25|52P9} 68m25 68r25 73r31 75r60 76r60 77r55 78r55 81m16 81r16
-64r9 player{30|6R10} 74m13 74r13
-86U15 guardarJugadorEnFichero 86b15 86>39 86>61 92l9 92t32 105s9 122s13
-86p39 miFichero{25|52P9} 88r19 89r19 90r19 91r19
-86r61 player{30|6R10} 88r40 89r40 90r30 91r30
-95V14 addJugadorEnFichero{boolean} 95b14 95>34 109l9 109t28 155s21
-95r34 player{30|6R10} 105r45
-96p9 miFichero{25|52P9} 100m25 100r25 105r34 107m16 107r16
-111V14 reescribirFicheroJugadores{boolean} 111b14 127l9 127t35 176s21 183s21
-. 190s21 199s25
-112p9 miFichero{25|52P9} 116m25 116r25 122r38 125m16 125r16
-121i13 cursor{any type} 122r57
-130V14 leerDato{23|79R9} 130b14 130>24 138l9 138t17 147s19 148s19 173s19
-130a24 mensaje{string} 132r18
-134a13 leido{string} 136r40
-141r9 nombre{23|79R9} 147m9 152r62 156r26
-142r9 email{23|79R9} 148m9 153r62
-143r9 player{30|6R10} 152m9 152r9 155r41
-144b9 resultado{boolean} 155m9
-160r9 player{30|6R10} 162m9 162r9 163r52 164r52 165r42 166r42
-170r9 email{23|79R9} 173m9 174r38
-171b9 resultado{boolean} 176m9
-180b9 resultado{boolean} 183m9
-187b9 resultado{boolean} 190m9
-194b9 resultado{boolean} 196m9 197r12 199m13 201r16
-205b9 resultado{boolean} 207m9 208r12 211r16
-216i13 cursor{any type} 217r34
+63p9 miFichero{25|52P9} 73m25 73r25 78r31 79r52 80r52 81r47 82r47 90m16 90r16
+64r9 player{30|6R10} 83m13 83r13
+65r9 Nombre{23|79R9} 79m13 84r31
+66r9 Email{23|79R9} 80m13 85r31
+67i9 Jugadas{integer} 81m13 86r32
+68i9 Ganadas{integer} 82m13 87r32
+95U15 guardarJugadorEnFichero 95b15 95>39 95>61 101l9 101t32 114s9 131s13
+95p39 miFichero{25|52P9} 97r19 98r19 99r19 100r19
+95r61 player{30|6R10} 97r40 98r40 99r30 100r30
+104V14 addJugadorEnFichero{boolean} 104b14 104>34 118l9 118t28 164s21
+104r34 player{30|6R10} 114r45
+105p9 miFichero{25|52P9} 109m25 109r25 114r34 116m16 116r16
+120V14 reescribirFicheroJugadores{boolean} 120b14 136l9 136t35 185s21 192s21
+. 199s21 208s25
+121p9 miFichero{25|52P9} 125m25 125r25 131r38 134m16 134r16
+130i13 cursor{any type} 131r57
+139V14 leerDato{23|79R9} 139b14 139>24 147l9 147t17 156s19 157s19 182s19
+139a24 mensaje{string} 141r18
+143a13 leido{string} 145r40
+150r9 nombre{23|79R9} 156m9 161r62 165r26
+151r9 email{23|79R9} 157m9 162r62
+152r9 player{30|6R10} 161m9 161r9 164r41
+153b9 resultado{boolean} 164m9
+169r9 player{30|6R10} 171m9 171r9 172r52 173r52 174r42 175r42
+179r9 email{23|79R9} 182m9 183r38
+180b9 resultado{boolean} 185m9
+189b9 resultado{boolean} 192m9
+196b9 resultado{boolean} 199m9
+203b9 resultado{boolean} 205m9 206r12 208m13 210r16
+214b9 resultado{boolean} 216m9 217r12 220r16
+225i13 cursor{any type} 226r34
 X 32 system.ads
 67M9*Address
 X 43 s-memory.ads

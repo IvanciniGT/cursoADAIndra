@@ -43,8 +43,8 @@ package body Jugadores is
 
     function cargarJugadorEnCache( nombre: Unbounded_String; 
                                     email: Unbounded_String; 
-                                    ganadas: Integer := 0; 
-                                    jugadas: Integer := 0) return Jugador is
+                                    jugadas: Integer := 0; 
+                                    ganadas: Integer := 0) return Jugador is
         player: Jugador;
     begin
         player:=( Nombre             => nombre ,
@@ -62,6 +62,11 @@ package body Jugadores is
     function cargarJugadores return Boolean is
         miFichero: File_type;
         player: Jugador;
+        Nombre: Unbounded_String;
+        Email: Unbounded_String;
+        Jugadas: Integer;
+        Ganadas: Integer;
+                    
     begin
         -- Crear u nuevo fichero o abrir uno existente
         Open(
@@ -71,11 +76,16 @@ package body Jugadores is
         );
         -- Mientras NO esté en el FIN DEL FICHERO
         while not End_of_file(miFichero) loop
+            Nombre := To_Unbounded_String(Get_line(miFichero)) ;
+            Email  := To_Unbounded_String(Get_line(miFichero)) ;
+            Jugadas := Integer'Value(Get_line(miFichero)) ;
+            Ganadas := Integer'Value(Get_line(miFichero));
+            
             player:= cargarJugadorEnCache (
-                    Nombre => To_Unbounded_String(Get_line(miFichero)) ,
-                    Email  => To_Unbounded_String(Get_line(miFichero)) ,
-                    Jugadas => Integer'Value(Get_line(miFichero)) ,
-                    Ganadas => Integer'Value(Get_line(miFichero)) );
+                    Nombre => Nombre ,
+                    Email  => Email ,
+                    Jugadas => Jugadas,
+                    Ganadas => Ganadas );
         end loop;
     
         Close( miFichero );
