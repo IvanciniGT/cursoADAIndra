@@ -1,27 +1,108 @@
 V "GNAT Lib v7"
 M P W=b
-P ZX
+P SS ZX
 
 RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U jugar%b		jugar.adb		0c0112ea NE OO SU
+U jugar%b		jugar.adb		308dd66a NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W jugadores%s		jugadores.adb		jugadores.ali
 W partida%s		partida.adb		partida.ali
 W piedrapapeltijera%s	piedrapapeltijera.adb	piedrapapeltijera.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
 
-D jugar.adb		20220222084142 ad7c32cd jugar%b
+D ada.ads		20170106103348 76789da1 ada%s
+D a-charac.ads		20070912115821 2d3ec45b ada.characters%s
+D a-chlat1.ads		20140225151544 66457d31 ada.characters.latin_1%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-finali.ads		20151020095656 bf4f806b ada.finalization%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-string.ads		20070406091342 90ac6797 ada.strings%s
+D a-strmap.ads		20140611123156 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20161012122725 ecdfa332 ada.strings.unbounded%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D jugadores.ads		20220223110252 d95c8cac jugadores%s
+D jugar.adb		20220223120000 70c18f35 jugar%b
 D partida.ads		20220222085401 10d6a197 partida%s
 D piedrapapeltijera.ads	20220222083802 b1ab81b0 piedrapapeltijera%s
 D system.ads		20170510173650 4635ec04 system%s
-X 1 jugar.adb
-5U11*Jugar 5b11 10l5 10t10
-6N5 NUMERO_DE_MANOS 9r48
-7e5 ganador{2|3E10} 9m5
-X 2 partida.ads
-1K9*Partida 1|2w6 2r45 2|8e12
-3E10*RESULTADO 1|7r13 2|3e51
-6V14*JugarPartida{3E10} 1|9s16
-X 3 piedrapapeltijera.ads
-4K9*PiedraPapelTijera 1|3w6 3r45 3|8e22
-6V14*JugarMano{2|3E10} 1|9r30
+D s-atocou.ads		20151020101020 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-finmas.ads		20151016130316 7811a767 system.finalization_masters%s
+D s-finroo.ads		20120426095924 4ff27390 system.finalization_root%s
+D s-memory.ads		20160622104833 597d6634 system.memory%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-secsta.ads		20170112134946 9751b57e system.secondary_stack%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stalib.adb		20140225151139 f2fe2716 system.standard_library%b
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20131010103753 b16154c2 system.storage_pools%s
+D s-stposu.ads		20151020120548 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20131014135145 aedef97e system.stream_attributes%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 17|6r6 6r22
+X 12 a-textio.ads
+49K13*Text_IO 471e16 17|6w10 6r26
+256V13*Get_Line{string} 17|18s27
+263U14*Put_Line 17|14s5 22s13 30s9
+X 16 jugadores.ads
+4K9*Jugadores 35e14 17|4w6 13r17 16r28 20r21 23r22 25r9 28r13 31r9
+6R10*Jugador 11e15 17|16r38
+13V14*NuevoJugador{string} 17|23s32
+15U15*ImprimirJugador 17|31s19
+19U15*AnotarNuevaPartida 17|25s19
+21U15*AnotarPartidaGanada 17|28s23
+27V14*RecuperarJugador{boolean} 17|20s31
+33V14*cargarJugadores{boolean} 17|13s27
+X 17 jugar.adb
+8U11*Jugar 8b11 33l5 33t10
+9N5 NUMERO_DE_MANOS 26r52
+10e5 ganador{18|3E10} 26m9 27r12
+11b5 resultado{boolean} 13m5
+16r9 jugadorEncontrado{16|6R10} 20m55 20r55
+17b9 encontrado{boolean} 20m9 21r16
+18a9 nombre{string} 20r48 23r13 25r38 28r43 31r35
+X 18 partida.ads
+1K9*Partida 17|2w6 2r45 18|8e12
+3E10*RESULTADO 17|10r13 18|3e51
+3n35*JUGADOR{3E10} 17|27r20
+6V14*JugarPartida{3E10} 17|26s20
+X 19 piedrapapeltijera.ads
+4K9*PiedraPapelTijera 17|3w6 3r45 19|8e22
+6V14*JugarMano{18|3E10} 17|26r34
+X 20 system.ads
+67M9*Address
+X 27 s-memory.ads
+53V13*Alloc{20|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{20|67M9} 105i<c,__gnat_realloc>22
+X 33 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
 
