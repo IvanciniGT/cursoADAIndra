@@ -1,0 +1,36 @@
+V "GNAT Lib v7"
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV SPARK_05
+
+U partida%b		partida.adb		a9a76eeb NE OO PK
+W interfaces%s		interfac.ads		interfac.ali
+W uiterminalpartida%s	uiterminalpartida.adb	uiterminalpartida.ali
+
+U partida%s		partida.ads		10d6a197 EE NE OO PK
+
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D partida.ads		20220222085401 10d6a197 partida%s
+D partida.adb		20220222091658 2f0530d8 partida%b
+D system.ads		20170510173650 4635ec04 system%s
+D uiterminalpartida.ads	20220222084737 9674ffa4 uiterminalpartida%s
+X 2 partida.ads
+1K9*Partida 8l5 8e12 3|3b14 32l5 32t12
+3E10*RESULTADO 3e51 4r42 6r98 3|5r98 6r23 10r41
+3n24*ORDENADOR{3E10} 3|15r39
+3n35*JUGADOR{3E10} 3|16r39
+3n44*EMPATE{3E10}
+4P10*Juego(3E10) 6r38 3|5r38
+6V14*JugarPartida{3E10} 6>27 6>46 3|5b14 30l9 30t21
+6p27 JugarMano{4P10} 3|5b27 17r29
+6i46 numero_manos_necesarias_para_ganar{integer} 3|5b46 15r52 16r52
+X 3 partida.adb
+6e9 ganador_mano{2|3E10} 17m13 20r36 23r37 23r78 25r35 28r16
+10a9 acumulado_manos_ganadas(integer) 15r15 16r15 23m13 23r54
+X 5 uiterminalpartida.ads
+7K9*UITerminalPartida 3|1w6 1r29 5|20e22
+12U15*proclamar_ganador_partida 3|25s9
+17U15*proclamar_ganador_mano 3|20s13
+

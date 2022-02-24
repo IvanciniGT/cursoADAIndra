@@ -1,0 +1,79 @@
+V "GNAT Lib v7"
+P SS ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U juegoarribaabajo%b	juegoarribaabajo.adb	50678054 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+U juegoarribaabajo%s	juegoarribaabajo.ads	5b7e33d8 EE OO PF PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W juegoadivinar%s	juegoadivinar.adb	juegoadivinar.ali
+W system%s		system.ads		system.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-except.ads		20151016123252 291912d5 ada.exceptions%s
+D a-inteio.ads		20070406091342 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20151016130316 01f5e3ef ada.tags%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D juegoadivinar.ads	20220224111218 6c2ca5be juegoadivinar%s
+D juegoarribaabajo.ads	20220224111116 f974ea16 juegoarribaabajo%s
+D juegoarribaabajo.adb	20220224110745 917e9f96 juegoarribaabajo%b
+D partida.ads		20220222085401 10d6a197 partida%s
+D system.ads		20170510173650 4635ec04 system%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-secsta.ads		20170112134946 9751b57e system.secondary_stack%s
+D s-soflin.ads		20151020124036 14e1eb6c system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140801093848 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20131014135145 aedef97e system.stream_attributes%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 13|1r6 1r61 2r6 2r61 14|1r6 1r61
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 13|2w10 2r65
+X 7 a-textio.ads
+49K13*Text_IO 471e16 13|1w10 1r65 14|1w10 1r65
+263U14*Put_Line 14|8s13 10s13
+X 12 juegoadivinar.ads
+5K9*JuegoAdivinar 15e18 13|3w6 3r61
+7R10*JuegoAdivinarNumero 11e15 13|7r40
+13V14*JugarMano{15|3E10}
+X 13 juegoarribaabajo.ads
+5K9*JuegoArribaAbajo 11l5 11e21 14|3b14 14l5 14t21
+7R10*JuegoNumeroArribaAbajo<12|7R10> 12|13p14 13|9e15 10P26 10r49 14|5r49
+8b9*pistas{boolean}
+10U26*mensajeDeFallo<12|14p15> 10>42 10>73 10>99 14|5b26 12l9 12t23
+10r42 juego{7R10} 14|5b42
+10i73 NumeroOrdenador{integer} 14|5b73 7r28
+10i99 NumeroJugador{integer} 14|5b99 7r12
+

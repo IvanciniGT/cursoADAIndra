@@ -11,5 +11,5 @@ package JuegoAdivinar is
     end record;
     
     function JugarMano( juego: JuegoAdivinarNumero ) return Partida.Resultado;
-    
+    procedure mensajeDeFallo (juego: JuegoAdivinarNumero; NumeroOrdenador: Integer; NumeroJugador:Integer);
 end JuegoAdivinar;
