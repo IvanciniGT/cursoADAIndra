@@ -2,6 +2,7 @@
 
 package PiedraPapelTijeraOpciones is
     
-    type OPCION is (PIEDRA, PAPEL, TIJERA);
+    type OPCION_SIMPLE is (PIEDRA, PAPEL, TIJERA);
+    type OPCION_AVANZADA is (PIEDRA, PAPEL, TIJERA, LAGARTO, SPOCK);
     
 end PiedraPapelTijeraOpciones;

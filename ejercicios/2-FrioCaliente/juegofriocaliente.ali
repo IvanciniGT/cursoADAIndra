@@ -38,9 +38,9 @@ D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D juegoadivinar.ads	20220224111218 6c2ca5be juegoadivinar%s
-D juegofriocaliente.ads	20220224111256 54c0c3be juegofriocaliente%s
-D juegofriocaliente.adb	20220224110723 5e7d90f7 juegofriocaliente%b
+D juegoadivinar.ads	20220224112332 6c2ca5be juegoadivinar%s
+D juegofriocaliente.ads	20220224111819 54c0c3be juegofriocaliente%s
+D juegofriocaliente.adb	20220224111824 5e7d90f7 juegofriocaliente%b
 D partida.ads		20220222085401 10d6a197 partida%s
 D system.ads		20170510173650 4635ec04 system%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
@@ -65,14 +65,14 @@ X 7 a-textio.ads
 49K13*Text_IO 471e16 13|1w10 1r65 14|1w10 1r65
 263U14*Put_Line 14|12s13 14s13 16s13 18s13 20s13
 X 12 juegoadivinar.ads
-5K9*JuegoAdivinar 15e18 13|3w6 3r61
+5K9*JuegoAdivinar 17e18 13|3w6 3r61
 7R10*JuegoAdivinarNumero 11e15 13|7r41
 13V14*JugarMano{15|3E10}
 X 13 juegofriocaliente.ads
 5K9*JuegoFrioCaliente 12l5 12e22 14|3b14 24l5 24t22
 7R10*JuegoNumeroFrioCaliente<12|7R10> 12|13p14 13|9e15 10P26 10r49 14|5r49
 8b9*pistas{boolean}
-10U26*mensajeDeFallo<12|14p15> 10>42 10>74 10>100 14|5b26 22l9 22t23
+10U26*mensajeDeFallo<12|15p15> 10>42 10>74 10>100 14|5b26 22l9 22t23
 10r42 juego{7R10} 14|5b42
 10i74 NumeroOrdenador{integer} 14|5b74 9r58
 10i100 NumeroJugador{integer} 14|5b100 9r42

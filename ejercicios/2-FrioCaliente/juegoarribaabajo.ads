@@ -7,5 +7,5 @@ package JuegoArribaAbajo is
     type JuegoNumeroArribaAbajo is new JuegoAdivinarNumero with Record
         pistas: Boolean:= True;
     end record;
-    overriding procedure mensajeDeFallo (juego: JuegoNumeroArribaAbajo; NumeroOrdenador: Integer; NumeroJugador:Integer)
+    overriding procedure mensajeDeFallo (juego: JuegoNumeroArribaAbajo; NumeroOrdenador: Integer; NumeroJugador:Integer);
 end JuegoArribaAbajo;

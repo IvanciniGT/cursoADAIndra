@@ -35,3 +35,24 @@ fig1:           FiguraGeomética
 
 
 Juego?
+
+Prueba Juego
+  -> jugarMano (JuegoAdivinarNumero) -> mostrarMensaje(JuegoAdivinarNumero)
+  -> jugarMano (JuegoAdivinarNumero) -> mostrarMensaje(JuegoNumeroFrioCaliente)
+  -> JugarMano (JuegoAdivinarNumero) -> mostrarMensaje(JuegoNumeroArribaAbajo)
+  
+  
+
+Jugar.adb
+    |
+    V
+  Partidas
+    - Jugador?
+    - Juego  ?
+        - Juego AdivinarNumeros
+            - Basico
+            - FrioCaliente
+            - Arriba Abajo
+        -Juego PiedraPapelTijera
+    - Manos  ?
+    --> Jugar Manos Pertinentes

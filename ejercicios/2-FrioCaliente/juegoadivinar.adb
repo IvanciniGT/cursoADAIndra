@@ -34,8 +34,12 @@ package body JuegoAdivinar is
             if NUMERO_JUGADOR = NUMERO_ORDENADOR then
                 Put_Line( "Enhorabuena, has ganado !!!!" );
             else
-                -- Pista
-                mensajeDeFallo(juego,NUMERO_ORDENADOR,NUMERO_JUGADOR);
+                -- Pista al compilador
+                -- Compilador, entiende que no quiero llamar siempre a la funcion definida en JuegoAdivinarNumero
+                -- Entiende que puede habr tipos derivados de JuegoAdivinarNumero.
+                -- Busca el tipo adecuado, el real: JuegoAdivinarNumero'Class(juego)
+                -- Y llama a la función pertinente, de ese tipo derivado.
+                JuegoAdivinarNumero'Class(juego).mensajeDeFallo(NUMERO_ORDENADOR,NUMERO_JUGADOR);
                 INTENTOS_DISPONIBLES := INTENTOS_DISPONIBLES - 1;
             end if;
                    
@@ -43,7 +47,7 @@ package body JuegoAdivinar is
         end loop;
        
         if NUMERO_JUGADOR /= NUMERO_ORDENADOR then -- Si no acerto
-            Put_Line("Perdiste. Ya no te quedan intentos.");
+            Put_Line("Perdiste. Ya no te quedan intentos. El número era el :" & NUMERO_ORDENADOR'Image);
             return ORDENADOR;
         end if;
         return JUGADOR;

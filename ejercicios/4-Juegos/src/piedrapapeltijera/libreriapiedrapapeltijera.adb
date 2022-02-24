@@ -6,10 +6,10 @@ with PiedraPapelTijeraOpciones;         use PiedraPapelTijeraOpciones;
 with UITerminalPiedraPapelTijera;       use UITerminalPiedraPapelTijera; ---?
 with ada.numerics.discrete_random;                      
 
-package body PiedraPapelTijera is
+package body LibreriaPiedraPapelTijera is
     
-    function JugarMano return RESULTADO is
-        
+    overriding function JugarMano( juego: PiedraPapelTijera ) return Partida.Resultado is
+    
         package EleccionOrdenadorAleatoria is new Ada.Numerics.Discrete_Random
         (
             Result_Subtype    => OPCION
@@ -53,4 +53,4 @@ package body PiedraPapelTijera is
         
     end JugarMano;
         
-end PiedraPapelTijera;
+end LibreriaPiedraPapelTijera;

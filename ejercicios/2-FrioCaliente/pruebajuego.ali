@@ -25,9 +25,9 @@ D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D juegoadivinar.ads	20220224111218 6c2ca5be juegoadivinar%s
-D juegoarribaabajo.ads	20220224111116 f974ea16 juegoarribaabajo%s
-D juegofriocaliente.ads	20220224111256 54c0c3be juegofriocaliente%s
+D juegoadivinar.ads	20220224112332 6c2ca5be juegoadivinar%s
+D juegoarribaabajo.ads	20220224112111 f974ea16 juegoarribaabajo%s
+D juegofriocaliente.ads	20220224111819 54c0c3be juegofriocaliente%s
 D partida.ads		20220222085401 10d6a197 partida%s
 D pruebajuego.adb	20220224110829 6fd32eb0 pruebajuego%b
 D system.ads		20170510173650 4635ec04 system%s
@@ -45,7 +45,7 @@ D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20160502101423 34867c83 system.unsigned_types%s
 D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
 X 12 juegoadivinar.ads
-5K9*JuegoAdivinar 15e18 16|2w6 2r25
+5K9*JuegoAdivinar 17e18 16|2w6 2r25
 7R10*JuegoAdivinarNumero 11e15 16|7r12
 8i9*minimo{integer} 16|13m9 21m9 30m9
 9i9*maximo{integer} 16|14m9 22m9 31m9

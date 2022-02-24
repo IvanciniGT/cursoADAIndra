@@ -1,0 +1,53 @@
+V "GNAT Lib v7"
+P ZX
+
+RN
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV SPARK_05
+
+U genericos2%b		genericos2.adb		cf17067e NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+Z system%s		system.ads		system.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+
+U genericos2%s		genericos2.ads		1835d1a5 BN EE NE OO PK GE
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-numeri.ads		20080324174807 bb51c45a ada.numerics%s
+D a-nudira.ads		20160418104118 71e55def ada.numerics.discrete_random%s
+D a-nudira.adb		20160418104118 72908cdb ada.numerics.discrete_random%b
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D genericos2.ads	20220224125930 1835d1a5 genericos2%s
+D genericos2.adb	20220224125651 a6c78a34 genericos2%b
+D interfac.ads		20160502101001 5ab55268 interfaces%s
+D system.ads		20170510173650 4635ec04 system%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-rannum.ads		20150205111725 99ade2f2 system.random_numbers%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+X 1 ada.ads
+16K9*Ada 20e8 7|1r6 12r51
+X 2 a-numeri.ads
+16K13*Numerics 32e17 7|1r10 12r55
+X 3 a-nudira.ads
+42E9 Result_Subtype 7|14r13
+44k22*Discrete_Random 75e33 7|1w19 12r64
+50R9 Generator<11|63R9> 7|17r30[12]
+52V13 Random{6|3E10} 7|21s25[12]
+55U14 Reset<11|100p14> 7|20s9[12]
+X 6 genericos2.ads
+3E10 TIPO 8r29 10r30 12r15 7|4r29 10r23 14r34 26r30
+6k9*Genericos2 3z10 14l5 14e15 7|2b14 31l5 31t15
+8U15*asignar 8>23 7|4b15 7l9 7t16
+8*23 dato{3E10} 7|4b23 6r19
+9U15*asignarAlAzar 7|9b15 24l9 24t22
+10V14*comprobar{boolean} 10>24 7|26b14 29l9 29t18
+10*24 dato{3E10} 7|26b24 28r16
+12*5*asignado{3E10} 7|6m9 23m9 28r23
+X 7 genericos2.adb
+10*9 DATO_AZAROSO{6|3E10} 21m9 23r19
+12K17 EleccionOrdenadorAleatoria[3|44] 16r13
+17r9 Generador_Aleatorio{3|50R9[12]} 20r15 21r32
+

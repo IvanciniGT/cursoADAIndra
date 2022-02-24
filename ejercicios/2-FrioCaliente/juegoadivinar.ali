@@ -3,6 +3,7 @@ P SS ZX
 
 RN
 RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCH
 RV NO_DISPATCHING_CALLS
 RV NO_EXCEPTIONS
 RV NO_IO
@@ -15,7 +16,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U juegoadivinar%b	juegoadivinar.adb	35d80740 NE OO PK
+U juegoadivinar%b	juegoadivinar.adb	dee812f2 NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
@@ -24,6 +25,8 @@ W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W partida%s		partida.adb		partida.ali
 Z system%s		system.ads		system.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
 Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
 
 U juegoadivinar%s	juegoadivinar.ads	b2dc7859 EE OO PF PK
@@ -53,13 +56,15 @@ D a-tiinio.ads		20140717063513 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
 D interfac.ads		20160502101001 5ab55268 interfaces%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D juegoadivinar.ads	20220224111218 6c2ca5be juegoadivinar%s
-D juegoadivinar.adb	20220224104226 f6e122f6 juegoadivinar%b
+D juegoadivinar.ads	20220224112332 6c2ca5be juegoadivinar%s
+D juegoadivinar.adb	20220224113723 1dd13744 juegoadivinar%b
 D partida.ads		20220222085401 10d6a197 partida%s
 D system.ads		20170510173650 4635ec04 system%s
+D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
 D s-exctab.ads		20140225151139 54135002 system.exception_table%s
 D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
 D s-imguns.ads		20140717070019 9ff43cf7 system.img_uns%s
 D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
 D s-rannum.ads		20150205111725 99ade2f2 system.random_numbers%s
@@ -85,44 +90,44 @@ X 5 a-numeri.ads
 X 6 a-nudira.ads
 42E9 Result_Subtype 16|22r13
 44k22*Discrete_Random 75e33 16|4w19 20r64
-50R9 Generator<24|63R9> 16|25r28[20]
+50R9 Generator<26|63R9> 16|25r28[20]
 52V13 Random{integer} 16|29s29[20]
-55U14 Reset<24|100p14> 16|28s9[20]
+55U14 Reset<26|100p14> 16|28s9[20]
 X 7 a-nudira.adb
-53V16 Random[24|83]{integer} 25|392b13[16|20]
+53V16 Random[26|83]{integer} 27|392b13[16|20]
 X 10 a-textio.ads
 49K13*Text_IO 471e16 15|1w10 1r65 16|1w10 1r65
-263U14*Put_Line 16|10s9 31s13 35s17 46s13
+263U14*Put_Line 16|10s9 31s13 35s17 50s13
 X 11 a-tiinio.ads
 56U14*Get 16|32s13[3|18]
 X 13 interfac.ads
 74M9*Unsigned_32
 77M9*Unsigned_64
 X 15 juegoadivinar.ads
-5K9*JuegoAdivinar 15l5 15e18 16|6b14 52l5 52t18
-7R10*JuegoAdivinarNumero 11e15 13p14 13r32 14p15 14r38 16|8r38 13r32
+5K9*JuegoAdivinar 17l5 17e18 16|6b14 56l5 56t18
+7R10*JuegoAdivinarNumero 11e15 13p14 13r32 15p15 15r38 16|8r38 13r32 42r17
 8i9*minimo{integer} 16|18r54
 9i9*maximo{integer} 16|18r70
 10i9*intentos{integer} 16|16r64
-13V14*JugarMano{17|3E10} 13>25 16|13b14 51l9 51t18
-13r25 juego{7R10} 16|13b25 16r58 18r48 18r64 38r32
-14U15*mensajeDeFallo 14>31 14>59 14>85 16|8b15 11l9 11t23 38s17
-14r31 juego{7R10} 16|8b31
-14i59 NumeroOrdenador{integer} 16|8b59
-14i85 NumeroJugador{integer} 16|8b85
+13V14*JugarMano{17|3E10} 13>25 16|13b14 55l9 55t18
+13r25 juego{7R10} 16|13b25 16r58 18r48 18r64 42r43
+15U15*mensajeDeFallo 15>31 15>59 15>85 16|8b15 11l9 11t23 42R50
+15r31 juego{7R10} 16|8b31
+15i59 NumeroOrdenador{integer} 16|8b59
+15i85 NumeroJugador{integer} 16|8b85
 X 16 juegoadivinar.adb
-14i9 NUMERO_ORDENADOR{integer} 29m9 34r33 38r38 42r68 45r30
-15i9 NUMERO_JUGADOR{integer} 32m18 34r16 38r55 42r51 45r12
-16i9 INTENTOS_DISPONIBLES{integer} 39m17 39r41 42r23
+14i9 NUMERO_ORDENADOR{integer} 29m9 34r33 42r65 46r68 49r30 50r82
+15i9 NUMERO_JUGADOR{integer} 32m18 34r16 42r82 46r51 49r12
+16i9 INTENTOS_DISPONIBLES{integer} 43m17 43r41 46r23
 18I17 rango_numeros{integer} 22r34
 20K17 EleccionOrdenadorAleatoria[6|44] 24r13
 25r9 Generador_Numeros{6|50R9[20]} 28r15 29r36
 X 17 partida.ads
 1K9*Partida 15|3w6 13r61 16|3w6 3r61 13r61 17|8e12
 3E10*RESULTADO 15|13r69 16|13r69 17|3e51
-3n24*ORDENADOR{3E10} 16|47r20
-3n35*JUGADOR{3E10} 16|49r16
-X 24 s-rannum.ads
-75V13*Random{13|74M9} 25|221i21
-76V13*Random{13|77M9} 25|221i21
+3n24*ORDENADOR{3E10} 16|51r20
+3n35*JUGADOR{3E10} 16|53r16
+X 26 s-rannum.ads
+75V13*Random{13|74M9} 27|221i21
+76V13*Random{13|77M9} 27|221i21
 

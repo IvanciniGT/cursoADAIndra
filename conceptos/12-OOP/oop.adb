@@ -54,8 +54,8 @@ procedure OOP is
     cuadrado: Poligono         := ( area=> 4, perimetro => 8, lados=> 4);
     
 begin
-    circulo.imprimirDatos;
-    cuadrado.imprimirDatos;
+    circulo.imprimirDatos;  -- Hago llamadas predefinidas al tipo concreto
+    cuadrado.imprimirDatos; -- Hago llamadas predefinidas al tipo concreto
     circulo.dobleArea;
     cuadrado.dobleArea;
 end OOP;
