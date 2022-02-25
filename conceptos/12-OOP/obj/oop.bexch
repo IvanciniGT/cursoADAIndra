@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__oop.o
+[PROJECT FILES]
+/home/ubuntu/environment/curso/conceptos/12-OOP/oop.gpr
+20220225065216
+[BOUND OBJECT FILES]
+/home/ubuntu/environment/curso/conceptos/12-OOP/obj/oop.o
+[GENERATED SOURCE FILES]
+b__oop.ads
+b__oop.adb
+b__oop.ali
+[RESULTING OPTIONS]
+-L/home/ubuntu/environment/curso/conceptos/12-OOP/obj/
+-L/home/ubuntu/environment/curso/conceptos/12-OOP/obj/
+-L/usr/lib/gcc/x86_64-linux-gnu/7/adalib/
+-shared
+-shared-libgcc
+-lgnat-7
+[RUN PATH OPTION]
+/usr/lib/gcc/x86_64-linux-gnu/7/adalib/
+/usr/lib

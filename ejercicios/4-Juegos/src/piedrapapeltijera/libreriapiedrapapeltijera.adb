@@ -20,25 +20,15 @@ package body LibreriaPiedraPapelTijera is
         
         mano_ordenador:                 OPCION;
         mano_jugador:                   OPCION;
-        ganador_mano:                   RESULTADO;
-        reglas:                         array (OPCION, OPCION) of RESULTADO;
+        ganador_mano:                   Partida.Resultado;
+        reglas:                         REGLAS_JUEGO;
             --INDICES:    0.      1.     2
             --VALORES.    PIEDRA  PAPEL. TIJERA
         -- cargar reglas
                -- Jugador.  -- Ordenador
     begin
         -- Cargar reglas
-        reglas(     PIEDRA ,    PIEDRA      ) :=    EMPATE;
-        reglas(     PAPEL  ,    PAPEL       ) :=    EMPATE;
-        reglas(     TIJERA ,    TIJERA      ) :=    EMPATE;
-        
-        reglas(     PIEDRA ,    TIJERA      ) :=    JUGADOR;
-        reglas(     PAPEL  ,    PIEDRA      ) :=    JUGADOR;
-        reglas(     TIJERA ,    PAPEL       ) :=    JUGADOR;
-        
-        reglas(     PIEDRA ,    PAPEL       ) :=    ORDENADOR;
-        reglas(     TIJERA ,    PIEDRA      ) :=    ORDENADOR;
-        reglas(     PAPEL  ,    TIJERA      ) :=    ORDENADOR;
+        reglas:= PiedraPapelTijera'Class(juego).cargarReglas;
 
         -- El ordenador piensa en Piedra, Papel, Tijera
         --mano_ordenador := GENERADOR_ELECCIONES_ORDENADOR.random; -- TODO: Hacer que esto sea aleatorio
@@ -53,4 +43,23 @@ package body LibreriaPiedraPapelTijera is
         
     end JugarMano;
         
+    function cargarReglas( juego: PiedraPapelTijera ) return REGLAS_JUEGO is
+        reglas: REGLAS_JUEGO;
+    begin
+        
+        reglas(     PIEDRA ,    PIEDRA      ) :=    EMPATE;
+        reglas(     PAPEL  ,    PAPEL       ) :=    EMPATE;
+        reglas(     TIJERA ,    TIJERA      ) :=    EMPATE;
+        
+        reglas(     PIEDRA ,    TIJERA      ) :=    JUGADOR;
+        reglas(     PAPEL  ,    PIEDRA      ) :=    JUGADOR;
+        reglas(     TIJERA ,    PAPEL       ) :=    JUGADOR;
+        
+        reglas(     PIEDRA ,    PAPEL       ) :=    ORDENADOR;
+        reglas(     TIJERA ,    PIEDRA      ) :=    ORDENADOR;
+        reglas(     PAPEL  ,    TIJERA      ) :=    ORDENADOR;
+        
+        return reglas;
+    end cargarReglas;
+    
 end LibreriaPiedraPapelTijera;

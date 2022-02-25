@@ -2,7 +2,7 @@ with UITerminalPartida; use UITerminalPartida;
 
 package body Partida is
     
-    function JugarPartida(JugarMano: Juego ; numero_manos_necesarias_para_ganar: Integer) return RESULTADO is
+    function JugarPartida(juegoActual: Juego ; numero_manos_necesarias_para_ganar: Integer) return RESULTADO is
         ganador_mano: RESULTADO;
         --- Vamos acumulando en esta variable los resultados de cada mano
         ---    ORDENADOR        |   JUGADOR     |   EMPATE
@@ -14,7 +14,7 @@ package body Partida is
         -- haya definido como requerido), jugamos manos
         while acumulado_manos_ganadas(ORDENADOR) < numero_manos_necesarias_para_ganar and then
               acumulado_manos_ganadas(JUGADOR)   < numero_manos_necesarias_para_ganar loop 
-            ganador_mano := JugarMano.all; -- CASO ESPECIAL... Ya que la funcion no tiene argumentos
+            ganador_mano := juegoActual.JugarMano; -- CASO ESPECIAL... Ya que la funcion no tiene argumentos
 
             -- Lo proclamo... Comunico resultados de la mano
             proclamar_ganador_mano(ganador_mano); -- Llamar a la UI

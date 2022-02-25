@@ -9,7 +9,9 @@ procedure Jugar is
     NUMERO_DE_MANOS: constant := 2;
     ganador:RESULTADO ;
     resultado:Boolean ;
+    juegoActual: LibreriaJuego.Juego;
 begin
+    juegoActual:= VariedadesPPT.juegoPPTBasico;
     resultado:= Jugadores.cargarJugadores;
     Put_Line("Cúal es su nombre?");
     declare
@@ -23,7 +25,7 @@ begin
             nombre:= Jugadores.NuevoJugador;
         end if;
         Jugadores.AnotarNuevaPartida(nombre);
-        ganador := JugarPartida( JugarMano'Access, NUMERO_DE_MANOS );
+        ganador := JugarPartida( juegoActual, NUMERO_DE_MANOS );
         if ganador=JUGADOR then 
             Jugadores.AnotarPartidaGanada(nombre);
         end if;
